@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+		<title>Índices por comunidades autónomas: general y de grupos ECOICOP(50913)</title>
+		<script>
+			var pathJaxi = "/jaxiT3/";
+		    var tablaId = 50913;
+		    var fkEstilo = -1;
+			var maxCeldasJs=1000;
+			var numTotalCeldasDat=0;
+			var simbolIlum = ["^","$"];
+			var graficoEnabled = '1';
+			var isInformeActivo = '0';
+			var mapaEnabled = '1'
+			var descargaGrafico = '1';
+			var descargaMapa = '1';
+			</script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="/menus/img/favicon.ico" type="image/x-icon">
+<link href="/menus/img/favicon.png" rel="apple-touch-icon">
+<link href="/menus/img/apple-touch-icon-57x57-precomposed.png" rel="apple-touch-icon" sizes="57x57">
+<link href="/menus/img/apple-touch-icon-60x60-precomposed.png" rel="apple-touch-icon" sizes="60x60">
+<link href="/menus/img/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon" sizes="76x76">
+<link href="/menus/img/apple-touch-icon-76x76-precomposed.png" rel="apple-touch-icon" sizes="76x76">
+<link href="/menus/img/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon" sizes="114x114">
+<link href="/menus/img/apple-touch-icon-120x120-precomposed.png" rel="apple-touch-icon" sizes="120x120">
+<link href="/menus/img/apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon" sizes="144x144">
+<link href="/menus/img/apple-touch-icon-152x152-precomposed.png" rel="apple-touch-icon" sizes="152x152">
+<link href="/menus/img/apple-touch-icon-160x160-precomposed.png" rel="apple-touch-icon" sizes="160x160">
+<link href="/menus/img/apple-touch-icon-180x180-precomposed.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/menus/img/favicon-192x192.png" rel="icon" sizes="192x192">
+<link href="/menus/img/favicon-160x160.png" rel="icon" sizes="160x160">
+<link href="/menus/img/favicon-128x128.png" rel="icon" sizes="128x128">
+<link href="/menus/img/favicon-96x96.png" rel="icon" sizes="96x96">
+<link href="/menus/img/favicon-32x32.png" rel="icon" sizes="32x32">
+<link href="/menus/img/favicon-16x16.png" rel="icon" sizes="16x16">
+<meta property="og:locale" content="es_ES" >
+	<meta property="og:type" content="website">
+<meta property="og:site_name" content="INE">
+<meta property="og:image" content="https://www.ine.es/menus/_b/img/logoINESocial.png">
+<meta property="og:image:secure_url" content="https://www.ine.es/menus/_b/img/logoINESocial.png">
+<meta property="og:image:alt" content="Logo">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="326">
+<meta property="og:image:height" content="126">
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta name="robots" content="index, follow">
+  <script type="application/ld+json" id="Organization">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id" :"https://www.ine.es#Organization",
+    "name": "INE - Instituto Nacional de Estadística",
+    "url": "https://www.ine.es/",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Madrid, España",
+        "postalCode": "28050",
+        "streetAddress": "Avenida de Manoteras, 50-52"
+    },
+    "contactPoint": [
+        {
+        "@type": "ContactPoint",
+        "contactType" : "Escribir a InfoINE",
+        "url": "https://www.ine.es/infoine/"
+    },
+    {
+        "@type": "ContactPoint",
+        "telephone": "(+34) 91-583-91-00",
+        "faxNumber": "(+34) 91-583-91-58",
+        "contactType" : "Información al público y centralita",
+        "hoursAvailable":[
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday"],
+                "opens": "09:00",
+                "closes": "14:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [ "Monday", "Tuesday", "Wednesday", "Thursday"],
+                "opens": "16:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [ "Friday"],
+                "opens": "09:00",
+                "closes": "14:00"            
+            }
+        ]
+    },
+    {
+        "@type": "ContactPoint",
+        "telephone": "(+34) 91-583-94-38",
+        "faxNumber": "(+34) 91-583-45-65",
+        "contactType" : "Librería Índice",
+        "email": "indice@ine.es"
+    },
+    {
+        "@type": "ContactPoint",
+        "telephone": "(+34) 91-583-94-11",
+        "contactType" : "Biblioteca",
+        "email": "biblioteca@ine.es"
+    }
+    ],
+    "logo": [
+        {
+            "@type": "ImageObject",
+            "@id": "https://www.ine.es/#logo",
+            "url": "https://www.ine.es/menus/_b/img/logoINESocial.png",
+            "width": 326,
+            "height": 125,
+            "name": "Logotipo INE (Instituto Nacional de Estadística)"
+        }
+    ],
+    "sameAs": [
+        "https://twitter.com/es_ine",
+        "https://www.youtube.com/@es_ine",
+        "https://www.instagram.com/es_ine_/",
+        "https://es.linkedin.com/company/ine-es"
+    ]
+}
+ 
+</script><script type="application/ld+json" id="WebSite">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.ine.es/#WebSite",            
+    "name": "INE - Instituto Nacional de Estadística",
+    "inLanguage": "es",     
+    "headline": "Instituto Nacional de Estadística",
+    "description" : "El INE elabora y distribuye estadisticas de Espana. Este servidor contiene: Censos de Poblacion y Viviendas 2001, Informacion general, Productos de difusion, Espana en cifras, Datos coyunturales, Datos municipales, etc.. Q2016.es",
+    "url": "https://www.ine.es/", 
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.ine.es/buscar/searchResults.do?L=1&searchString={query}",
+        "query" : "required",
+        "query-input": "required name=query"
+    }
+}</script> 
+<link rel="preload" as="style" media="screen" href="/menus/lib/jquery-ui/1.12.1/jquery-ui.css" onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')"  >
+<noscript>
+	<link rel="stylesheet" media="screen" href="/menus/lib/jquery-ui/1.12.1/jquery-ui.css">	
+	</noscript>
+	
+	<script >
+		var sepMil= ".";var sepDec= ",";
+	 var docIsLoaded=false;
+		var HM_Menu_Dir="/menus/";
+		var HM_Menu_DirVersion="/menus/_b/";
+		var HM_imgDir="/menus/img/";
+		var HM_DirJs="/menus/js/";
+		var HM_idioma="es";
+		var HM_idiomaINE="0";
+		var othethickbox="";
+		var INE_Servidor="";
+		var INE_ServidorAbsoluta="https://www.ine.es";
+		var HTMLVersion=5;
+		var showBtnAddCesta=false;
+		var isIE=false;
+	</script>
+	<script src="/menus/lib/jquery.js"></script>
+	<script src="/menus/_b/js/general.js?L=0&chars=UTF-8"></script>
+	
+	<script async src="/menus/lib/jquery-ui/1.12.1/jquery-ui.js"></script>
+	<link rel="preload" as="style" href="/menus/_b/css/component/components.css?L=0&amp;ilp=1&amp;pnls=1&amp;smap=1&amp;emap=1&amp;sv=2&amp;tbs=1" onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')">
+<noscript>
+    <link rel="stylesheet" href="/menus/_b/css/component/components.css?L=0&amp;ilp=1&amp;pnls=1&amp;smap=1&amp;emap=1&amp;sv=2&amp;tbs=1">
+</noscript>
+<script src="/menus/_b/js/component/ine.js?L=0"></script>
+<script defer src="/menus/_b/js/component/components.js?L=0&amp;ilp=1&amp;pnls=1&amp;smap=1&amp;emap=1&amp;sv=2&amp;tbs=1"></script> 
+	
+	<script async src="/menus/js/loading.js"></script>
+	<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')" href="/menus/_b/css/base.css">
+<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')" href="/menus/_b/css/cabecera_pie.css">
+<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')" href="/menus/_b/css/cabecera_pie_print.css" media="print">
+<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')" href="/menus/_b/css/nav.css">
+<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')" href="/menus/_b/css/nav_print.css" media="print">
+<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as')" href="/menus/_b/css/iconos.css"><noscript>
+	<link rel="stylesheet" href="/menus/_b/css/base.css">
+	<link rel="stylesheet" href="/menus/_b/css/cabecera_pie.css">
+	<link rel="stylesheet" href="/menus/_b/css/cabecera_pie_print.css" media="print">
+	<link rel="stylesheet" href="/menus/_b/css/nav.css">
+	<link rel="stylesheet" href="/menus/_b/css/nav_print.css" media="print">
+	<link rel="stylesheet" href="/menus/_b/css/iconos.css">
+</noscript>
+	
+	
+		<script async src="/menus/NC/status.js?L=0"></script>
+	
+	<link rel="stylesheet" href="/menus/lib/jqplot/1.0.9/jquery.jqplot.min.css">
+<script src="/menus/lib/jqplot/1.0.9/jquery.jqplot.min.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.json2.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.barRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.pointLabels.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.categoryAxisRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.logAxisRenderer.js" ></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.cursor.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.canvasTextRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.canvasAxisLabelRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.canvasAxisTickRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.dateAxisRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.highlighter.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.canvasOverlay.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.pieRenderer.js"></script>
+<script src="/menus/lib/jqplot/1.0.9/plugins/jqplot.enhancedLegendRenderer.js"></script>
+<link rel="preload" as="style"  onload="this.rel='stylesheet'; this.removeAttribute('onload'); this.removeAttribute('as'); try{loadUrlScript('/menus/_b/js/consul.js?l=es',null,null);}catch{}" href="/menus/_b/css/cesta.css">
+			
+	
+	
+	
+	
+	<script async src="/menus/js/cookie.js"></script>
+	
+	<script async src="/menus/plantillas/buscar/js/liveSearch.js" ></script>
+	<script async src="/menus/_b/js/cabecera.js"></script>	
+	<script async src="/ua/urlcorta.js"></script>
+	<script async src="/menus/_b/js/social.js"></script>
+	<script async src="/menus/js/thickboxINE.js"></script>
+	<script>
+var dirPlantilla='/menus//plantillas/jaxiT3/';
+var dirApp='./';
+</script>
+<script src="/menus/js/validators.js"></script>
+<script src="/menus/plantillas/jaxiT3/js/liveSearchJaxiT3.js"></script>
+<script src="/menus/plantillas/jaxiT3/js/jaxi.js"></script>
+<script src="/menus/plantillas/jaxiT3/js/recargaPagina.js"></script>
+<script src="/menus/plantillas/jaxiT3/js/jaxiT3Json.js"></script><!--[if IE]><script src="/menus/plantillas/jaxiT3/js/excanvas.js"></script><![endif]-->
+<link rel="stylesheet" href="/menus/plantillas/jaxiT3/css/jaxiT3.css"><link rel="stylesheet" href="/menus/css/mapas.css">		<script src="/menus/js/grafico.js"></script>
+	<script src="/menus/plantillas/jaxiT3/js/jscolor.js"></script><script>var exec_loadingOnLoad='1';</script>	
+		
+	
+</head>
+<body >
+		<div class="contenedor">
+	<div class="overlay"></div>
+	<header>
+	
+		 <div class="flex-block-left-auto">
+			<div class="ImagenLogoIne">
+				 <a href="/"><img src="/menus/_b/img/LogoINE.svg" alt="SIGLAS Instituto Nacional de Estad&#237;stica">
+							
+				</a>
+	
+			</div>
+		
+			<div class="MenuDch">
+				<div class="Menu_idioma">
+					
+				</div>
+	
+					<div  class="capa_Menu_cabeceraBuscador">
+					<form name="Menu_cabeceraBuscador" id="Menu_cabeceraBuscador"
+						  action="/buscar/searchResults.do" accept-charset="UTF-8"
+						  onsubmit="return Buscador_Valida();" method="get" class="">
+						<input tabindex="0" placeholder='Escriba el texto para buscar' aria-label='Escriba el texto para buscar' class="Menu_searchString" id="searchString" name="searchString" value="" autocomplete="off" type="search">
+						<button name="Menu_botonBuscador" id="Menu_botonBuscador" aria-label='Acci&#243;n de buscar en el sitio web'></button>
+						<input name="searchType" id="searchType" value="DEF_SEARCH" type="hidden">
+						<input name="startat" id="startat" value="0" type="hidden">
+						<input name="L"  value="0" type="hidden"> </form>
+				</div>
+				
+			</div>
+		
+		</div>
+	</header>
+	
+	
+	<nav aria-label="MenÃº Principal" class=" main-menu"  >
+	<div>
+		<div class="toggleBtn">
+			<a href="/indiceweb.htm" id="sidebarCollapse" class="btn btn-info no-events" aria-label="Mostrar/ocultar el menÃº principal de navegaciÃ³n" title="Men&#250; de navegaci&#243;n">
+			<i class="ii ii-bars"></i>
+		</a>
+		<script id="loaderFCPSC">
+			document.head.insertAdjacentHTML("beforeend", `<style id="loaderFCPST">
+				.loaderFCP { background-size: cover; width: 35px; height: 35px; transform: rotate(0deg); animation: rotationLoader 1s linear infinite; display: block; border: 2px solid white; border-radius: 100px; border-color: white white transparent white; }
+				@keyframes rotationLoader { 100% { transform: rotate(360deg); } }
+			</style>`);			document.querySelector(".main-menu .toggleBtn a").onclick=function(){
+				this.children[0].setAttribute("class", "loaderFCP")
+				return false;
+			}
+		</script>		<img src="/menus/_b/img/LogoINESiglasMini.svg" class="nav-logo" alt="Instituto Nacional de EstadÃ­stica">
+		</div>		<div id="sidebar" class="intellimenu-layer" style="display: none;">
+		</div>
+		<ul class="secondList">
+			<li>
+				<a class="tit" href="/dyngs/CEL/index.htm?cid=41" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Censo Electoral" target="_blank">Censo Electoral</a></li>
+			<li>
+				<a class="tit" href="https://sede.ine.gob.es/ss/Satellite?c=Page&amp;cid=1254734719723&amp;pagename=SedeElectronica%2FSELayout&amp;lang=es_ES" role="button" aria-haspopup="true" aria-expanded="false"  aria-label="Sede electr&#243;nica" target="_blank" rel="noopener">Sede electr&#243;nica</a>
+			</li>			
+			<li class="dropdown">
+				<a id="shareBtn" data-toggle="drop-down" onclick="this.classList.toggle('active')" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false"  aria-label="Compartir"> 
+					<span class="tit">Compartir</span>
+					<i class="ii ii-share"></i>
+				</a>
+				<ul class="dropdown-menu" title="Lista de redes para compartir p&#225;gina">
+					<li>
+						<a id="shareTwitter" data-social-text="INE. Instituto Nacional de Estad&#237;stica" data-social-via="es_ine" class="" href="#shareTwitter" target="SocialShared" title="Abre ventana nueva X">
+							<span class="tit">X</span>
+							<i class="ii ii-twitter-x"></i>
+						</a>
+					</li>
+					<li>
+						<a id="shareFacebook" data-social-text="INE. Instituto Nacional de Estad&#237;stica" href="#shareFacebook" target="SocialShared" title="Abre ventana nueva Facebook">
+							<span class="tit">Facebook</span>
+							<i class="ii ii-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a id="shareLinkedin" data-social-text="INE. Instituto Nacional de Estad&#237;stica" href="#shareLinkedin" target="SocialShared" title="Abre ventana nueva Linkedin">
+							<span class="tit">Linkedin</span>
+							<i class="ii ii-linkedin"></i>
+						</a>
+					</li>
+					<li>
+						<a id="shareWhatsapp" data-social-text="INE. Instituto Nacional de Estad&#237;stica" href="#shareWhatsapp" target="SocialShared" title="Abre ventana nueva WhatsApp">
+							<span class="tit">WhatsApp</span>
+							<i class="ii ii-whatsapp"></i>
+						</a>
+					</li>
+					<li>
+						<a id="shareMail" data-social-text="INE. Instituto Nacional de Estad&#237;stica" href="#shareMail" target="_self" title="Abre ventana nueva">
+							<span class="tit">Correo Electr&#243;nico</span>
+							<i class="ii ii-mail"></i>
+						</a>
+					</li>
+					<li>
+						<a id="shareClipboard" data-social-text="INE. Instituto Nacional de Estad&#237;stica" href="#shareClipboard" target="_self" title="Abre ventana nueva">
+							<span class="tit">Copiar al portapapeles</span>
+							<i class="ii ii-copy"></i>
+						</a>
+					</li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+</nav>
+	<main>
+	
+	
+	
+<script src="/menus/plantillas/jaxiT3/js/jaxiDatos.js"></script>
+<script src="/menus/js/mapasINE/visualINE.js"></script>
+<script src="/menus/js/mapasINE/savetoimg.js"></script>
+<script src="/menus/js/mapasINE/svg-pan-zoom.min.js"></script>
+<script>
+	function UrlCorta_InfoPOST(){
+		var target = getSelectedTarget();
+		var serialize = [];
+		if(target=="#tabs-grafico"){
+			serialize = UrlCorta_Serialize($("#graficoForm :input[value!='']"));
+		}else if(target=="#tabs-mapa"){
+			serialize = UrlCorta_Serialize($("#mapaForm :input[value!='']"));
+		}else if(target=="#tabs-tabla" || target=="#tabs-informe"){
+			serialize =  $("#volverForm :input[name!='vueltaDatos'][name!='t'][value!='']").serializeArray();
+		}
+		return serialize;
+	}
+	function UrlCorta_Serialize(elem){
+		var names = [];
+		$(elem).each(function() {names.push($(this).attr("name"));});
+		$("#volverForm input:not([name^=cri])[name!='vueltaDatos'][name!='t'][value!='']").each(function(){
+			if(names.indexOf($(this).attr("name")) == -1){
+				elem = elem.add(this);
+			}
+		});
+		return elem.serializeArray();
+	}
+</script>
+<div class="AppToolBarFondo AppToolBarImg2">
+<a class="AppToolBarLogo" href="/dyngs/INEbase/listaoperaciones.htm" title="Lista completa de operaciones">
+				<img src="/menus/img/logoinebase.svg" class="sinborde" alt="Inicio Inebase">
+			</a>
+		<div class="AppToolBarContent">
+   	<div class="Sup"><ul class="miga">
+		<li><a href="/dyngs/INEbase/listaoperaciones.htm">INEbase</a></li><li class='medio'><a href="/dyngs/INEbase/categoria.htm?c=Estadistica_P&cid=1254735976607">Índices de precios de consumo y vivienda</a></li><li class='medio'><a href="/dyngs/INEbase/categoria.htm?c=Estadistica_P&cid=1254735976604">Nivel y condiciones de vida (IPC)</a></li><li class='medio'><a href="/dyngs/INEbase/operacion.htm?c=Estadistica_C&cid=1254736176802&menu=resultados&idp=1254735976607#_tabs-1254736194776">Índice de precios de consumo</a></li><li class="medio"><a href="/dynt3/inebase/index.htm?padre=8423&capsel=8423">Indice de Precios de Consumo. Base 2021</a>
+						</li>
+					</ul></div>
+      <div class="Inf"></div>
+   </div>
+</div><br class="limpia">
+
+
+					<input type="hidden" id="oper" name="oper" value="25">
+				 			<input type="hidden" id="sel_oper" name="sel_oper" class="input_seleccionados" value="1" >
+						<span class="cab1">Indice de Precios de Consumo. Base 2021</span>
+							<span class="cab2">Resultados por comunidades autónomas</span>
+								<h1 class="cab3">Índices por comunidades autónomas: general y de grupos ECOICOP</h1>
+							<ul class="seccJaxi ii-group">
+		<li class="titulo_detalle_datos">
+			<div id="capaIconosDatos">
+				<span id="tablaDetalle"><strong>Unidades:&nbsp;</strong>  Índice,   Tasas</span>
+					<div class="right">
+
+					<form id="volverForm" name="volverForm"
+						action="Tabla.htm?t=50913" method="POST">
+					 	<button class="iconoExporta" id="btnVolver" title="Nueva selección" >
+					 		<i class="ii ii-circle ii-big ii-cog"></i>
+					 	</button>
+						<input type="hidden" name="t" value="50913">
+														<input type="hidden" name="vueltaDatos" value="1">
+					</form>
+
+					<button class="iconoExporta" type="button" id="descargaMapa" title="Descarga mapa">
+						<i class="ii ii-circle ii-big ii-download"></i>
+					</button>
+					<button class="iconoExporta" type="button" id="descargaGrafico" title="Descarga gráfico">
+						<i class="ii ii-circle ii-big ii-download"></i>
+					</button>
+
+					<form id="descargaForm" name="descargaForm" action="dlgExport.htm" method="POST">
+						<input type="hidden" name="form" value="1">
+						<input type="hidden" name="t" value="50913">
+													<button class="thickbox iconoExporta" id="btnDescargaForm" name="btnDescargaForm" title="Formatos de descarga disponibles">
+							<i class="ii ii-circle ii-big ii-download"></i>
+						</button>
+					</form>
+
+					<form id="widgetFormMapa" name="widgetFormMapa"
+							action="WidgetServlet.htm?t=50913&ratio=0.9" method="POST">
+							 <button class="thickbox iconoExporta" id="btnWidgetMapa" name="btnWidgetMapa" title="Generador de Widgets">
+							 	<i class="ii ii-circle ii-big ii-widget-code"></i>
+							 </button>
+								<input type="hidden" name="p_widgetFormMapa" id="p_widgetFormMapa" value="1">
+								<input type="hidden" name="p_widget_vartipoMapa" id="p_widget_vartipoMapa"  value="">
+								<input type="hidden" name="p_widget_intervalos" id="p_widget_intervalos"  value="">
+								<input type="hidden" name="p_widget_colorMapa" id="p_widget_colorMapa"  value="">
+					    		<input type="hidden" name="p_widget_declegend" id="p_widget_declegend"  value="">
+						</form>
+					<form id="widgetFormGrafico" name="widgetFormGrafico"
+							action="WidgetServlet.htm?t=50913&ratio=0.9" method="POST">
+							 <button class="thickbox iconoExporta" id="btnWidgetGrafico" name="btnWidgetGrafico" title="Generador de Widgets">
+							 	<i class="ii ii-circle ii-big ii-widget-code"></i>
+							 </button>
+						</form>
+					<form id="widgetFormTabla" name="widgetFormTabla"
+							action="WidgetServlet.htm?t=50913&ratio=0.9" method="POST">
+							 	<button class="thickbox iconoExporta" id="btnWidgetTabla"	name="btnWidgetTabla" title="Generador de Widgets">
+							 		<i class="ii ii-circle ii-big ii-widget-code"></i>
+							 	</button>
+
+													<input type="hidden" name="t" value="50913">
+																	<input type="hidden" name="p_widgetFormTabla" value="1">
+						</form>
+					<form id="dlgExportCesta" name="dlgExportCesta" action="dlgExportCesta.htm" method="POST">
+							<input type="hidden" name="form" value="1">
+							<input type="hidden" name="dest" value="cesta">
+							<input type="hidden" name="t" value="50913">
+							<input type="hidden" name="serie" value="IPC251852">
+								<input type="hidden" name="serie" value="IPC251855">
+								<input type="hidden" name="serie" value="IPC251856">
+								<input type="hidden" name="serie" value="IPC251858">
+								<input type="hidden" name="serie" value="IPC255678">
+								<input type="hidden" name="serie" value="IPC255680">
+								<input type="hidden" name="serie" value="IPC255681">
+								<input type="hidden" name="serie" value="IPC255683">
+								<input type="hidden" name="serie" value="IPC255732">
+								<input type="hidden" name="serie" value="IPC255734">
+								<input type="hidden" name="serie" value="IPC255735">
+								<input type="hidden" name="serie" value="IPC255737">
+								<input type="hidden" name="serie" value="IPC255786">
+								<input type="hidden" name="serie" value="IPC255788">
+								<input type="hidden" name="serie" value="IPC255789">
+								<input type="hidden" name="serie" value="IPC255791">
+								<input type="hidden" name="serie" value="IPC255840">
+								<input type="hidden" name="serie" value="IPC255842">
+								<input type="hidden" name="serie" value="IPC255843">
+								<input type="hidden" name="serie" value="IPC255845">
+								<input type="hidden" name="serie" value="IPC255894">
+								<input type="hidden" name="serie" value="IPC255896">
+								<input type="hidden" name="serie" value="IPC255897">
+								<input type="hidden" name="serie" value="IPC255899">
+								<input type="hidden" name="serie" value="IPC255948">
+								<input type="hidden" name="serie" value="IPC255950">
+								<input type="hidden" name="serie" value="IPC255951">
+								<input type="hidden" name="serie" value="IPC255953">
+								<input type="hidden" name="serie" value="IPC256002">
+								<input type="hidden" name="serie" value="IPC256004">
+								<input type="hidden" name="serie" value="IPC256005">
+								<input type="hidden" name="serie" value="IPC256007">
+								<input type="hidden" name="serie" value="IPC256056">
+								<input type="hidden" name="serie" value="IPC256058">
+								<input type="hidden" name="serie" value="IPC256059">
+								<input type="hidden" name="serie" value="IPC256061">
+								<input type="hidden" name="serie" value="IPC256110">
+								<input type="hidden" name="serie" value="IPC256112">
+								<input type="hidden" name="serie" value="IPC256113">
+								<input type="hidden" name="serie" value="IPC256115">
+								<input type="hidden" name="serie" value="IPC256164">
+								<input type="hidden" name="serie" value="IPC256166">
+								<input type="hidden" name="serie" value="IPC256167">
+								<input type="hidden" name="serie" value="IPC256169">
+								<input type="hidden" name="serie" value="IPC256217">
+								<input type="hidden" name="serie" value="IPC256219">
+								<input type="hidden" name="serie" value="IPC256220">
+								<input type="hidden" name="serie" value="IPC256222">
+								<input type="hidden" name="serie" value="IPC256271">
+								<input type="hidden" name="serie" value="IPC256273">
+								<input type="hidden" name="serie" value="IPC256274">
+								<input type="hidden" name="serie" value="IPC256276">
+								<input type="hidden" name="serie" value="IPC256325">
+								<input type="hidden" name="serie" value="IPC256327">
+								<input type="hidden" name="serie" value="IPC256328">
+								<input type="hidden" name="serie" value="IPC256330">
+								<input type="hidden" name="serie" value="IPC256379">
+								<input type="hidden" name="serie" value="IPC256381">
+								<input type="hidden" name="serie" value="IPC256382">
+								<input type="hidden" name="serie" value="IPC256384">
+								<input type="hidden" name="serie" value="IPC256433">
+								<input type="hidden" name="serie" value="IPC256435">
+								<input type="hidden" name="serie" value="IPC256436">
+								<input type="hidden" name="serie" value="IPC256438">
+								<input type="hidden" name="serie" value="IPC255462">
+								<input type="hidden" name="serie" value="IPC255464">
+								<input type="hidden" name="serie" value="IPC255465">
+								<input type="hidden" name="serie" value="IPC255467">
+								<input type="hidden" name="serie" value="IPC255516">
+								<input type="hidden" name="serie" value="IPC255518">
+								<input type="hidden" name="serie" value="IPC255519">
+								<input type="hidden" name="serie" value="IPC255521">
+								<input type="hidden" name="serie" value="IPC255570">
+								<input type="hidden" name="serie" value="IPC255572">
+								<input type="hidden" name="serie" value="IPC255573">
+								<input type="hidden" name="serie" value="IPC255575">
+								<input type="hidden" name="serie" value="IPC255624">
+								<input type="hidden" name="serie" value="IPC255626">
+								<input type="hidden" name="serie" value="IPC255627">
+								<input type="hidden" name="serie" value="IPC255629">
+								<button class="thickbox iconoExporta" id="btnCesta" name="btnCesta" title="Añadir series a la cesta">
+									<i class="ii ii-circle ii-big ii-basket"></i>
+								</button>
+							</form>
+					<a role="button" title="Metodología" aria-label="Metodología" href="/dynt3/metadatos/es/RespuestaDatos.htm?oe=30138" target="_blank">
+							<i class="ii ii-circle ii-big ii-metadata"></i>
+						</a>
+					<button class="iconoExporta" type="button" id="maximizeTab" title="Maximizar ventana">
+						<i class="ii ii-circle ii-big ii-maximize"></i>
+					</button>
+
+				</div> </div>
+		</li>
+	</ul>
+	<div id="tabs">
+		<ul>
+				<li class="tabs-tabla"><a href="#tabs-tabla">Tabla</a></li>
+				<li class="tabs-grafico"><a href="#tabs-grafico">Gráfico</a></li>
+			<li class="tabs-mapa"><a href="#tabs-mapa">Mapa</a></li>
+			</ul>
+		<div id="operationDialog" class="opt-dialog" style="width: 30%;">
+			<div class="optListButtons">
+				<input type="button" class="selection optButton selectAll" value="Seleccionar todo">
+				<input type="button" class="selection optButton deSelectAll" value="Desmarcar todo">
+			</div>
+			<ul>
+				<li class="summ"><input type="checkbox" id="summatory" class="operacion summ" value="Sumatorio" title="Sumatorio">Sumatorio</li>
+				<li class="med"><input type="checkbox" id="medium" class="operacion med" value="Media" title="Media">Media</li>
+				<li class="cuart1"><input type="checkbox" id="cuartil1" class="operacion cuartil1" value="Cuartil1.EXC" title="Cuartil 1">Cuartil 1</li>
+				<li class="median"><input type="checkbox" id="median" class="operacion cuartil2" value="Cuartil2.EXC" title="Cuartil 2 (Mediana)">Cuartil 2 (Mediana)</li>
+				<li class="cuart3"><input type="checkbox" id="cuartil3" class="operacion cuartil3" value="Cuartil3.EXC" title="Cuartil 3">Cuartil 3</li>
+				<li class="desv"><input type="checkbox" id="desv" class="operacion desv" value="Desviacion Tipica" title="Desviación típica">Desviación típica</li>
+				<li class="count"><input type="checkbox" id="count" class="operacion count" value="Contar" title="Contar">Contar</li>
+				<li class="max"><input type="checkbox" id="max" class="operacion max" value="Maximo" title="Máximo">Máximo</li>
+				<li class="min"><input type="checkbox" id="min" class="operacion min" value="Minimo" title="Mínimo">Mínimo</li>
+			</ul>
+			<div class="optListButtons">
+				<input type="button" class="operation optButton execute" value="Aceptar">
+			</div>
+		</div>
+		<div id="filterInformeDialog" class="filter-dialog">
+			<div class="optListButtons">
+				<input type="hidden" id="informeDes" value="Seleccione las filas/columnas que desea ocultar, pulsando sobre las cabeceras de filas o columnas.">
+				<input type="button" id="informeReset" class="informe optButton reset" value="Mostrar todo">
+				<input type="button" id="informeAccept" class="informe optButton accept" value="Cerrar">
+			</div>
+		</div>
+		<div id="tabs-tabla">
+				<table id="tablaDatos" class="general" >
+					<thead><tr><td rowspan="2" class="th r0"></td><th id="c_A0"  class="r0">Índice</th><th id="c_A1"  class="r0">Variación mensual</th><th id="c_A2"  class="r0">Variación anual</th><th id="c_A3"  class="r0">Variación en lo que va de año</th></tr><tr><th id="c_B0"  headers="c_A0"  class="r1 lastCH cols">2024M12</th><th id="c_B1"  headers="c_A1"  class="r1 lastCH cols">2024M12</th><th id="c_B2"  headers="c_A2"  class="r1 lastCH cols">2024M12</th><th id="c_B3"  headers="c_A3"  class="r1 lastCH cols">2024M12</th></tr></thead><tbody><tr><th  id="r_A1"  colspan="5"  class="s0 lastRH">Nacional</th>
+<tr><th  id="r_B1"  headers="r_A1"  class="s1 rows">Índice general</th>
+<td headers="r_B1 c_B0" ></td><td headers="r_B1 c_B1"  class="sd" ><!--{"f":1733007600000,"s":"IPC251855"} -->0,4</td><td headers="r_B1 c_B2"  class="sd" ><!--{"f":1733007600000,"s":"IPC251856"} -->2,8</td><td headers="r_B1 c_B3" ></td></tr><tr><th  id="r_A2"  colspan="5"  class="s0 lastRH">01 Andalucía</th>
+<tr><th  id="r_B2"  headers="r_A2"  class="s1 rows">Índice general</th>
+<td headers="r_B2 c_B0" ></td><td headers="r_B2 c_B1" ></td><td headers="r_B2 c_B2" ></td><td headers="r_B2 c_B3" ></td></tr><tr><th  id="r_A3"  colspan="5"  class="s0 lastRH">02 Aragón</th>
+<tr><th  id="r_B3"  headers="r_A3"  class="s1 rows">Índice general</th>
+<td headers="r_B3 c_B0" ></td><td headers="r_B3 c_B1" ></td><td headers="r_B3 c_B2" ></td><td headers="r_B3 c_B3" ></td></tr><tr><th  id="r_A4"  colspan="5"  class="s0 lastRH">03 Asturias, Principado de</th>
+<tr><th  id="r_B4"  headers="r_A4"  class="s1 rows">Índice general</th>
+<td headers="r_B4 c_B0" ></td><td headers="r_B4 c_B1" ></td><td headers="r_B4 c_B2" ></td><td headers="r_B4 c_B3" ></td></tr><tr><th  id="r_A5"  colspan="5"  class="s0 lastRH">04 Balears, Illes</th>
+<tr><th  id="r_B5"  headers="r_A5"  class="s1 rows">Índice general</th>
+<td headers="r_B5 c_B0" ></td><td headers="r_B5 c_B1" ></td><td headers="r_B5 c_B2" ></td><td headers="r_B5 c_B3" ></td></tr><tr><th  id="r_A6"  colspan="5"  class="s0 lastRH">05 Canarias</th>
+<tr><th  id="r_B6"  headers="r_A6"  class="s1 rows">Índice general</th>
+<td headers="r_B6 c_B0" ></td><td headers="r_B6 c_B1" ></td><td headers="r_B6 c_B2" ></td><td headers="r_B6 c_B3" ></td></tr><tr><th  id="r_A7"  colspan="5"  class="s0 lastRH">06 Cantabria</th>
+<tr><th  id="r_B7"  headers="r_A7"  class="s1 rows">Índice general</th>
+<td headers="r_B7 c_B0" ></td><td headers="r_B7 c_B1" ></td><td headers="r_B7 c_B2" ></td><td headers="r_B7 c_B3" ></td></tr><tr><th  id="r_A8"  colspan="5"  class="s0 lastRH">07 Castilla y León</th>
+<tr><th  id="r_B8"  headers="r_A8"  class="s1 rows">Índice general</th>
+<td headers="r_B8 c_B0" ></td><td headers="r_B8 c_B1" ></td><td headers="r_B8 c_B2" ></td><td headers="r_B8 c_B3" ></td></tr><tr><th  id="r_A9"  colspan="5"  class="s0 lastRH">08 Castilla - La Mancha</th>
+<tr><th  id="r_B9"  headers="r_A9"  class="s1 rows">Índice general</th>
+<td headers="r_B9 c_B0" ></td><td headers="r_B9 c_B1" ></td><td headers="r_B9 c_B2" ></td><td headers="r_B9 c_B3" ></td></tr><tr><th  id="r_A10"  colspan="5"  class="s0 lastRH">09 Cataluña</th>
+<tr><th  id="r_B10"  headers="r_A10"  class="s1 rows">Índice general</th>
+<td headers="r_B10 c_B0" ></td><td headers="r_B10 c_B1" ></td><td headers="r_B10 c_B2" ></td><td headers="r_B10 c_B3" ></td></tr><tr><th  id="r_A11"  colspan="5"  class="s0 lastRH">10 Comunitat Valenciana</th>
+<tr><th  id="r_B11"  headers="r_A11"  class="s1 rows">Índice general</th>
+<td headers="r_B11 c_B0" ></td><td headers="r_B11 c_B1" ></td><td headers="r_B11 c_B2" ></td><td headers="r_B11 c_B3" ></td></tr><tr><th  id="r_A12"  colspan="5"  class="s0 lastRH">11 Extremadura</th>
+<tr><th  id="r_B12"  headers="r_A12"  class="s1 rows">Índice general</th>
+<td headers="r_B12 c_B0" ></td><td headers="r_B12 c_B1" ></td><td headers="r_B12 c_B2" ></td><td headers="r_B12 c_B3" ></td></tr><tr><th  id="r_A13"  colspan="5"  class="s0 lastRH">12 Galicia</th>
+<tr><th  id="r_B13"  headers="r_A13"  class="s1 rows">Índice general</th>
+<td headers="r_B13 c_B0" ></td><td headers="r_B13 c_B1" ></td><td headers="r_B13 c_B2" ></td><td headers="r_B13 c_B3" ></td></tr><tr><th  id="r_A14"  colspan="5"  class="s0 lastRH">13 Madrid, Comunidad de</th>
+<tr><th  id="r_B14"  headers="r_A14"  class="s1 rows">Índice general</th>
+<td headers="r_B14 c_B0" ></td><td headers="r_B14 c_B1" ></td><td headers="r_B14 c_B2" ></td><td headers="r_B14 c_B3" ></td></tr><tr><th  id="r_A15"  colspan="5"  class="s0 lastRH">14 Murcia, Región de</th>
+<tr><th  id="r_B15"  headers="r_A15"  class="s1 rows">Índice general</th>
+<td headers="r_B15 c_B0" ></td><td headers="r_B15 c_B1" ></td><td headers="r_B15 c_B2" ></td><td headers="r_B15 c_B3" ></td></tr><tr><th  id="r_A16"  colspan="5"  class="s0 lastRH">15 Navarra, Comunidad Foral de</th>
+<tr><th  id="r_B16"  headers="r_A16"  class="s1 rows">Índice general</th>
+<td headers="r_B16 c_B0" ></td><td headers="r_B16 c_B1" ></td><td headers="r_B16 c_B2" ></td><td headers="r_B16 c_B3" ></td></tr><tr><th  id="r_A17"  colspan="5"  class="s0 lastRH">16 País Vasco</th>
+<tr><th  id="r_B17"  headers="r_A17"  class="s1 rows">Índice general</th>
+<td headers="r_B17 c_B0" ></td><td headers="r_B17 c_B1" ></td><td headers="r_B17 c_B2" ></td><td headers="r_B17 c_B3" ></td></tr><tr><th  id="r_A18"  colspan="5"  class="s0 lastRH">17 Rioja, La</th>
+<tr><th  id="r_B18"  headers="r_A18"  class="s1 rows">Índice general</th>
+<td headers="r_B18 c_B0" ></td><td headers="r_B18 c_B1" ></td><td headers="r_B18 c_B2" ></td><td headers="r_B18 c_B3" ></td></tr><tr><th  id="r_A19"  colspan="5"  class="s0 lastRH">18 Ceuta</th>
+<tr><th  id="r_B19"  headers="r_A19"  class="s1 rows">Índice general</th>
+<td headers="r_B19 c_B0" ></td><td headers="r_B19 c_B1" ></td><td headers="r_B19 c_B2" ></td><td headers="r_B19 c_B3" ></td></tr><tr><th  id="r_A20"  colspan="5"  class="s0 lastRH">19 Melilla</th>
+<tr><th  id="r_B20"  headers="r_A20"  class="s1 rows">Índice general</th>
+<td headers="r_B20 c_B0" ></td><td headers="r_B20 c_B1" ></td><td headers="r_B20 c_B2" ></td><td headers="r_B20 c_B3" ></td></tr></tbody></table>
+			</div>
+		<!-- Fin Tab Tabla -->
+		<div id="tabs-mapa">
+			<div class="tabMapContent">
+				<div class="ui-layout-west">
+			<form id="mapaForm">
+					<input type="hidden"
+									name="rows"
+									value="110924">
+							<input type="hidden"
+									name="rows"
+									value="110925">
+							<input type="hidden"
+									name="columns"
+									value="110926">
+							<input type="hidden"
+									name="columns"
+									value="p_per">
+							<input type="hidden"
+									name="columns"
+									value="p_oper">
+							<div class="gFContenido consGraph">
+				    	<fieldset class="fieldsettabs">
+							<legend class="oculto">Opciones del mapa</legend>
+								<div class="gFtitulo">
+									<a class="tooltipINE"><span class="tituloGrafico">Seleccionar valores...</span><span class="tooltipINE-content">Puede seleccionar un valor de cada variable.</span></a><br>
+								</div>
+					<ul id="capaSelecMapa" class="check basic">
+
+						<li style="display: none">
+							<span class="cabeceraCheck">
+						Operaciones</span>
+							<ul class="checkItemMapa">
+								<li class="tool">
+									<img role="button" class="selectAll puntero"
+										title="Seleccionar todos"
+										alt="Seleccionar todos"
+										src="/menus/plantillas/jaxiT3/img/iconoselecciontodos.gif"
+										onclick="selectCheckGaf(true,'operCheckMapa');return false;">
+									<img role="button" class="selectNone puntero"
+										title="Borrar selección"
+										alt="Borrar selección"
+										src="/menus/plantillas/jaxiT3/img/iconoseleccionninguno.gif"
+										onclick="selectCheckGaf(false,'operCheckMapa');return false;">
+								</li>
+								<li><label class="labelcheckMapa"> <input type="radio" checked id="operCheckMapa"
+															name="oper" value="25">Índice de Precios de Consumo (IPC)</label></li>
+									</ul>
+					</li>
+
+
+					<li style="display: block">
+								<span class="cabeceraCheck">Seleccione el tipo de mapa</span>
+								<ul class="checkItemMapa">
+									<li><label class="labelcheckMapa"><input type="radio" checked
+																						name="radioMap"
+																value="349">Totales Territoriales</label>
+											</li>
+										<li><label class="labelcheckMapa"><input type="radio"
+																						name="radioMap"
+																value="70">Comunidades y Ciudades Autónomas</label>
+											</li>
+										</ul>
+							</li>
+						<li style="display: none">
+										<span class="cabeceraCheck">Comunidades y Ciudades Autónomas</span>
+
+								<ul class="checkItemMapa">
+									<li class="tool">
+											<img role="button" class="selectAll puntero"
+												title="Seleccionar todos"
+												alt="Seleccionar todos"
+												src="/menus/plantillas/jaxiT3/img/iconoselecciontodos.gif"
+												onclick=" selectCheckGaf(true,'cri110924');return false;">
+											<img role="button" class="selectNone puntero"
+												title="Borrar selección"
+												alt="Borrar selección"
+												src="/menus/plantillas/jaxiT3/img/iconoseleccionninguno.gif"
+												onclick=" selectCheckGaf(false,'cri110924');return false;">
+										</li>
+									<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275918"
+															name="cri110924"
+															value="5275918">Nacional</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275919"
+															name="cri110924"
+															value="5275919">Andalucía</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275920"
+															name="cri110924"
+															value="5275920">Aragón</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275921"
+															name="cri110924"
+															value="5275921">Asturias, Principado de</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275922"
+															name="cri110924"
+															value="5275922">Balears, Illes</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275923"
+															name="cri110924"
+															value="5275923">Canarias</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275924"
+															name="cri110924"
+															value="5275924">Cantabria</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275925"
+															name="cri110924"
+															value="5275925">Castilla y León</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275926"
+															name="cri110924"
+															value="5275926">Castilla - La Mancha</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275927"
+															name="cri110924"
+															value="5275927">Cataluña</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275928"
+															name="cri110924"
+															value="5275928">Comunitat Valenciana</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275929"
+															name="cri110924"
+															value="5275929">Extremadura</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275930"
+															name="cri110924"
+															value="5275930">Galicia</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275931"
+															name="cri110924"
+															value="5275931">Madrid, Comunidad de</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275932"
+															name="cri110924"
+															value="5275932">Murcia, Región de</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275933"
+															name="cri110924"
+															value="5275933">Navarra, Comunidad Foral de</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275934"
+															name="cri110924"
+															value="5275934">País Vasco</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275935"
+															name="cri110924"
+															value="5275935">Rioja, La</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275936"
+															name="cri110924"
+															value="5275936">Ceuta</label></li>
+												<li><label class="labelcheckMapa">
+
+														<input type="checkbox" checked
+															id="valueMap110924-5275937"
+															name="cri110924"
+															value="5275937">Melilla</label></li>
+												</ul>
+								</li>
+							<li style="display: none">
+									<span class="cabeceraCheck">Grupos ECOICOP</span>
+
+								<ul class="checkItemMapa">
+									<li><label class="labelcheckMapa"> <input type="radio" checked
+																		id="valueMap110925-5275938"
+																		name="cri110925"
+																		value="5275938">Índice general</label></li>
+												</ul>
+								</li>
+							<li style="display: block">
+									<span class="cabeceraCheck">Tipo de dato</span>
+
+								<ul class="checkItemMapa">
+									<li><label class="labelcheckMapa"> <input type="radio" checked
+																		id="valueMap110926-5275951"
+																		name="cri110926"
+																		value="5275951">Índice</label></li>
+												<li><label class="labelcheckMapa"> <input type="radio"
+																		id="valueMap110926-5275952"
+																		name="cri110926"
+																		value="5275952">Variación mensual</label></li>
+												<li><label class="labelcheckMapa"> <input type="radio"
+																		id="valueMap110926-5275953"
+																		name="cri110926"
+																		value="5275953">Variación anual</label></li>
+												<li><label class="labelcheckMapa"> <input type="radio"
+																		id="valueMap110926-5275954"
+																		name="cri110926"
+																		value="5275954">Variación en lo que va de año</label></li>
+												</ul>
+								</li>
+							<li style="display: block">
+								<span class="cabeceraCheck">Periodo</span>
+							<ul class="checkItemMapa">
+								<li><label class="labelcheckMapa"> <input type="radio" checked="checked" name="periodo"
+																value="12~2024">2024M12</label></li>
+
+										</ul>
+							</li>
+						<li style="display: block">
+							<span class="cabeceraCheck">Formato</span>
+							<ul id="formato_mapa" class="checkItemMapa">
+								<li>
+									<label for="declegend_selec" ><span>Decimales de la leyenda</span></label>
+									<select id="declegend_selec" name="declegend_selec">
+									<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3" selected="selected">3</option>
+											</select>
+								</li>
+ 								<li>
+ 									<div id="capaBotonMapa">
+ 										<input id="pintarMapa" name="pintarMapa" class="botonSel botonGrafica" type="submit" value="Ver Mapa">
+ 									</div>
+ 								</li>
+							</ul>
+
+						</li>
+					</ul>
+
+				</fieldset>
+				</div>
+
+			</form>
+
+		</div>
+
+		<div id="ContentMapa" class="ui-layout-center">
+			<div class="marco">
+				<span id="tituloMapa"></span>
+			</div>
+			<div id="DivMapa" class=" visual">
+
+			</div>
+		</div>
+</div>
+			</div>
+
+
+		<div id="tabs-grafico">
+		<div class="tabGraphContent">
+			<div class="ui-layout-west">
+				<form id="graficoForm">
+					<input type="hidden"
+									name="rows"
+									value="110924">
+							<input type="hidden"
+									name="rows"
+									value="110925">
+							<input type="hidden"
+									name="columns"
+									value="110926">
+							<input type="hidden"
+									name="columns"
+									value="p_per">
+							<input type="hidden"
+									name="columns"
+									value="p_oper">
+							<div class="gFContenido consGraph">
+							<fieldset class="fieldsettabs">
+								<legend class="oculto">Opciones del gráfico</legend>
+							<div class="gFtitulo">
+								<a class="tooltipINE"><span class="tituloGrafico">Seleccionar valores...</span><span class="tooltipINE-content">Puede seleccionar más de un valor en el periodo y en una de las otras variables.</span></a><br>
+							</div>
+
+									<ul id="accordion1" class="check basic ii-group">
+										<li style="display: none">
+											<span class="cabeceraCheck ">
+										Operaciones</span>
+										<ul class="checkItem">
+											<li class="tool">
+												<button title="Seleccionar todos" onclick=" selectCheckGaf(true,'operCheck');return false;">
+													<i class="ii ii-small ii-select-all"></i>
+												</button>
+												<button class="selectNone" title="Borrar selección" onclick=" selectCheckGaf(false,'operCheck');return false;">
+													<i class="ii ii-small ii-select-none"></i>
+												</button>
+											</li>
+											<li><label class="labelcheck"> <input type="checkbox" checked="checked" id="operCheck"
+																		name="oper" value="25">Índice de Precios de Consumo (IPC)</label></li>
+												</ul></li>
+<li style="display: block">
+													<span class="cabeceraCheck" title="Desplegar valores del grupo para filtrar">Comunidades y Ciudades Autónomas</span>
+											<ul class="checkItem">
+												<li class="tool">
+													<button title="Seleccionar todos" onclick=" selectCheckGaf(true,'cri110924');return false;">
+														<i class="ii ii-small ii-select-all"></i>
+													</button>
+													<button class="selectNone" title="Borrar selección" onclick=" selectCheckGaf(false,'cri110924');return false;">
+														<i class="ii ii-small ii-select-none"></i>
+													</button>
+												</li>
+
+
+
+												<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275918"
+																		name="cri110924"
+																		value="5275918">Nacional</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275919"
+																		name="cri110924"
+																		value="5275919">01 Andalucía</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275920"
+																		name="cri110924"
+																		value="5275920">02 Aragón</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275921"
+																		name="cri110924"
+																		value="5275921">03 Asturias, Principado de</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275922"
+																		name="cri110924"
+																		value="5275922">04 Balears, Illes</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275923"
+																		name="cri110924"
+																		value="5275923">05 Canarias</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275924"
+																		name="cri110924"
+																		value="5275924">06 Cantabria</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275925"
+																		name="cri110924"
+																		value="5275925">07 Castilla y León</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275926"
+																		name="cri110924"
+																		value="5275926">08 Castilla - La Mancha</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275927"
+																		name="cri110924"
+																		value="5275927">09 Cataluña</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275928"
+																		name="cri110924"
+																		value="5275928">10 Comunitat Valenciana</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275929"
+																		name="cri110924"
+																		value="5275929">11 Extremadura</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275930"
+																		name="cri110924"
+																		value="5275930">12 Galicia</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275931"
+																		name="cri110924"
+																		value="5275931">13 Madrid, Comunidad de</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275932"
+																		name="cri110924"
+																		value="5275932">14 Murcia, Región de</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275933"
+																		name="cri110924"
+																		value="5275933">15 Navarra, Comunidad Foral de</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275934"
+																		name="cri110924"
+																		value="5275934">16 País Vasco</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275935"
+																		name="cri110924"
+																		value="5275935">17 Rioja, La</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275936"
+																		name="cri110924"
+																		value="5275936">18 Ceuta</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110924-5275937"
+																		name="cri110924"
+																		value="5275937">19 Melilla</label></li>
+															</ul>
+											</li>
+										<li style="display: none">
+												<span class="cabeceraCheck" title="Desplegar valores del grupo para filtrar">Grupos ECOICOP</span>
+											<ul class="checkItem">
+												<li class="tool">
+													<button title="Seleccionar todos" onclick=" selectCheckGaf(true,'cri110925');return false;">
+														<i class="ii ii-small ii-select-all"></i>
+													</button>
+													<button class="selectNone" title="Borrar selección" onclick=" selectCheckGaf(false,'cri110925');return false;">
+														<i class="ii ii-small ii-select-none"></i>
+													</button>
+												</li>
+
+
+
+												<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110925-5275938"
+																		name="cri110925"
+																		value="5275938">Índice general</label></li>
+															</ul>
+											</li>
+										<li style="display: block">
+													<span class="cabeceraCheck" title="Desplegar valores del grupo para filtrar">Tipo de dato</span>
+											<ul class="checkItem">
+												<li class="tool">
+													<button title="Seleccionar todos" onclick=" selectCheckGaf(true,'cri110926');return false;">
+														<i class="ii ii-small ii-select-all"></i>
+													</button>
+													<button class="selectNone" title="Borrar selección" onclick=" selectCheckGaf(false,'cri110926');return false;">
+														<i class="ii ii-small ii-select-none"></i>
+													</button>
+												</li>
+
+
+
+												<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110926-5275951"
+																		name="cri110926"
+																		value="5275951">Índice</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110926-5275952"
+																		name="cri110926"
+																		value="5275952">Variación mensual</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110926-5275953"
+																		name="cri110926"
+																		value="5275953">Variación anual</label></li>
+															<li><label class="labelcheck">
+															<input type="checkbox" checked="checked"
+																		id="value110926-5275954"
+																		name="cri110926"
+																		value="5275954">Variación en lo que va de año</label></li>
+															</ul>
+											</li>
+										<li style="display: block">
+											<span class="cabeceraCheck" title="Desplegar valores del grupo para filtrar">Periodo</span>
+										<ul class="checkItem">
+											<li class="tool">
+												<button title="Seleccionar todos" onclick=" selectCheckGaf(true,'periodo');return false;">
+													<i class="ii ii-small ii-select-all"></i>
+												</button>
+												<button class="selectNone" title="Borrar selección" onclick=" selectCheckGaf(false,'periodo');return false;">
+													<i class="ii ii-small ii-select-none"></i>
+												</button>
+											</li>
+
+											<li><label class="labelcheck"> <input
+																	type="checkbox" checked="checked"  name="periodo"
+																	value="12~2024">2024M12</label></li>
+															</ul>
+										</li>
+									<li><span class="cabeceraCheck" title="Desplegar opciones adicionales">Formato del gráfico</span>
+									<ul class="checkItem">
+										<li id="capa_columnas_grafico">
+											<label for="columnas_grafico">Seleccione la variable a pintar en las columnas:</label><br>
+											<select id="columnas_grafico" name="columnas_grafico">
+													<option value="per">Periodo</option>
+													</select>
+										</li>
+
+											<li>
+														<label for="ejeHorizontal">
+														Seleccione la variable a pintar en el eje horizontal:</label>
+														<select id="ejeHorizontal" name="ejeHorizontal">
+															<option value="per">Periodo</option>
+															</select>
+												</li>
+
+										<li>
+											<label for="tipoGrafico">Seleccione el tipo de gráfico:</label><br>
+											<select id="tipoGrafico" name="tipoGrafico">
+												<option value="lineas">Lineas</option>
+														<option value="barras" selected="selected">Barras verticales</option>
+														<option value="barrashorizontales">Barras horizontales</option>
+														<option value="barrasapiladas">Barras Apiladas</option>
+														<option value="barrashorizapiladas">Barras Horizontales Apiladas</option>
+														<option value="circular">Circular</option>
+														</select>
+										</li>
+
+										<li>
+												<div id="capaBotonGrafica">
+												<input id="graficar" class="botonSel botonGrafica" type="submit" value="Ver gráfico">
+											</div>
+										</li>
+
+										<li id="li_color_box" style="display: none">
+											<label for="in_color_box">Seleccione el color por defecto:</label>
+											<input type="color" id="in_color_box">
+										</li>
+
+									</ul>
+
+								</li>
+							</ul>
+						</fieldset>
+					</div>
+					<input type="hidden" name="L" value="0">
+
+				</form>
+
+			</div>
+			<div id="graph" class="ui-layout-center">
+					<div class="gFtitulo">
+						<div class="marco">
+							<span id="tituloGrafico"></span>
+						</div>
+					</div>
+					<div class="gFContenido">
+						<div id="graficoNuevo"></div>
+					</div>
+			</div>
+		</div>
+		</div>
+		<!-- Fin Tab Grafico -->
+	</div>
+	<!-- Fin Tabs -->
+
+	<div id="imgChart"></div>
+
+		</main>
+<footer><div id="pie" class="d2">	<div class="homePie" >
+		<ul>
+			<li><a href="/infoine/">
+				<i class="ii ii-mail"></i> <strong>Contacto</strong></a>
+			</li>
+			<li><a href="/indiceweb.htm">Mapa web</a></li>
+			<li>
+				<a href="/dyngs/AYU/index.htm?cid=125">
+					Aviso legal
+				</a>
+			</li>
+			<li><a href="/dyngs/AYU/index.htm?cid=127">Accesibilidad</a></li>
+			<li><a href="/prensa/seccion_prensa.htm">Prensa</a></li>			<li class="margen_sup20imp"><a href="/dyngs/MYP/es/index.htm?cid=1">Clasificaciones y est&#225;ndares</a></li>
+			<li><a href="/dyngs/MYP/es/index.htm?cid=10">Nuevos proyectos</a></li>
+			<li>
+				<a href="/dyngs/MYP/es/index.htm?cid=23"
+				   title="M&#233;todos y proyectos / Documentos de Trabajo"
+				   aria-label="Ver + M&#233;todos y proyectos / Documentos de Trabajo">
+				   Ver +
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="homePie">
+		<ul>
+			<li><a href="/dyngs/INE/es/index.htm?cid=498">El INE</a></li>
+			<li><a href="/dyngs/INE/index.htm?cid=401">Transparencia</a></li>
+			<li><a href="/dyngs/INE/es/index.htm?cid=581">Organizaci&#243;n Estad&#237;stica en Espa&#241;a</a></li>
+			<li><a href="/ss/Satellite?L=es_ES&amp;c=Page&amp;cid=1259943453642&amp;p=1259943453642&amp;pagename=MetodologiaYEstandares%2FINELayout">Calidad y C&#243;digo de buenas pr&#225;cticas</a></li>
+			<li><a href="/dyngs/INE/es/index.htm?cid=542">Sistema Estad&#237;stico Europeo</a></li>
+			<li>
+				<a href="/dyngs/INE/es/index.htm?cid=496"
+				   title="El INE"
+				   aria-label="Ver + El INE">
+				   Ver +
+				</a>
+			</li>
+		</ul>
+	</div>	<div class="homePie">
+		<ul>
+			<li><a href="/dyngs/FYE/index.htm?cid=132">Formaci&#243;n y empleo</a></li>
+			<li><a href="/dyngs/FYE/index.htm?cid=133">Pr&#225;cticas universitarias</a></li>
+			<li><a href="/dyngs/FYE/index.htm?cid=134">Becas</a></li>
+			<li><a href="/dyngs/FYE/index.htm?cid=166">Oposiciones</a></li>
+			<li><a href="/explica/explica.htm" target="_blank"  rel="noopener">Explica</a></li>
+			<li>
+				<a href="/dyngs/FYE/index.htm?cid=132"
+				   title="Formaci&#243;n y empleo"
+				   aria-label="Ver + Formaci&#243;n y empleo">
+				   Ver +
+				</a>
+			</li>
+		</ul>
+	</div>	<div class="homePie">
+		<ul>			<li><a href="/ss/Satellite?L=0&amp;c=Page&amp;cid=1254735893337&amp;p=1254735893337&amp;pagename=ProductosYServicios%2FPYSLayout">IPC en un clic</a></li>
+			<li><a href="/ss/Satellite?c=Page&amp;cid=1254735550343&amp;pagename=ProductosYServicios%2FPYSLayout&amp;L=0">Atenci&#243;n al p&#250;blico</a></li>
+			<li><a href="/ss/Satellite?L=es_ES&amp;c=Page&amp;cid=1254735110606&amp;p=1254735110606&amp;pagename=ProductosYServicios%2FPYSLayout" aria-label="Catalogo de Publicaciones">Publicaciones</a></li>
+			<li><a href="/ss/Satellite?L=es_ES&amp;c=Page&amp;cid=1259942408928&amp;p=1259942408928&amp;pagename=ProductosYServicios%2FPYSLayout">Datos abiertos</a></li>
+			<li><a href="/ss/Satellite?L=es_ES&amp;c=Page&amp;cid=1259945091334&amp;p=1259945091334&amp;pagename=ProductosYServicios%2FPYSLayout">Carta de servicios</a></li>
+			<li>
+				<a href="/ss/Satellite?c=Page&amp;cid=1254735550343&amp;pagename=ProductosYServicios%2FPYSLayout&amp;L=0"
+				   title="Productos y Servicios"
+				   aria-label="Ver + Productos y Servicios">
+					Ver +
+				</a>
+			</li>		</ul>
+	</div>	<div class="homePie" >
+		<ul>
+			<li>S&#237;guenos</li>
+			<li><a class="ii ii-twitter-x" href="https://twitter.com/es_ine" target="_blank" rel="noopener" title="Abre ventana nueva"><span class="tit">X</span></a></li>
+			<li><a class="ii ii-youtube" href="https://www.youtube.com/INEDifusion" target="_blank"  rel="noopener" title="Abre ventana nueva"><span class="tit">Youtube</span></a></li>
+			<li><a class="ii ii-instagram" href="https://www.instagram.com/es_ine_/" target="_blank" rel="noopener" title="Abre ventana nueva"><span class="tit">Instagram</span></a></li>
+			<li><a class="ii ii-linkedin" href="https://es.linkedin.com/company/ine-es" target="_blank" rel="noopener" title="Abre ventana nueva"><span class="tit">LinkedIn</span></a></li>
+			<li><a class="ii ii-feed" href="/dyngs/INE/es/index.htm?cid=1303" target="_blank" rel="noopener" title="Abre ventana nueva"><span class="tit">Canal RSS</span></a></li>
+		</ul>
+	</div>	<div class="homePie copyright">
+		<p>
+		<span>	&copy; 2024 <a href="/" rel="author cc:attributionURL dct:creator" property="cc:attributionName">INE. Instituto Nacional de Estad&#237;stica</a>
+			<a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;" title ="Este sitio web y su contenido est&#225;n bajo licencia CC BY-SA 4.0">
+				<i class="ii ii-cc ii-normal"></i>
+				<i class="ii ii-by ii-normal"></i>
+			</a>
+		</span>
+		<span>
+			Avda. Manoteras, 52 - 28050 - Madrid - Espa&#241;a Tlf: (+34) 91 583 91 00
+		</span>
+		</p>
+	</div>
+	</div>
+		<!-- boton subir -->
+		
+		<button class="ir-arriba" aria-label="Bot&#243;n para volver arriba" title="Volver arriba">
+			<i class="ii ii-caret-up"></i>
+		</button>
+		
+		<!-- fin boton subir -->
+	</footer>
+	
+		
+			
+						
+			
+				<script type="text/Javascript">function showFelicitacion(){
+	docInclu=readCookie("Felici_es");
+	if ( isNaN(docInclu) || docInclu==null){
+		if( isNaN(include_control)){
+			var include_control=1;
+			ch=800;
+				cw=600;
+				w=screen.width>cw ?  cw : (cw * screen.width/cw)*0.9;
+				h=screen.height>ch ? ch : (ch * screen.height/ch)*0.8;
+				if (w<cw && h>=ch)
+					h=h*(w/cw);
+				else if (h<ch && w>=cw)
+					w=w*(h/ch);
+			
+				tbINE_show(" ", 1, "/navidad.htm", false,{position:'center'
+				, width: String(w )	, height: String(h)
+				});						createCookie("Felici_es", "1","1");
+		}
+	}
+}MenuPie_Include_OtherLoad = (window.onload) ? window.onload :  new Function;window.onload  = function(){
+	MenuPie_Include_OtherLoad();
+	showFelicitacion();
+};</script>
+			
+		</div>
+				<!-- Codigo de seguimiento de Google Analytics  -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script  src="https://www.googletagmanager.com/gtag/js?id=UA-19028967-1"></script>
+<script >
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());  gtag('config', 'UA-19028967-1');
+</script><!-- Fin Google Analytics  -->
+		<script src='/menus/_b/js/politicaCookies.js' ></script>
+		<script>
+
+
+		var idioma= "es";
+		var scrollGraphEnabled = false;
+		var hayMapa = true;
+
+		var datosSerializadosGrafica;
+
+		maxCeldasJs =1000;
+
+		$("#capaListaMetodologia").hide();
+
+		var notas = "0";
+
+		$( "#widgetFormTabla" ).show();
+		$( "#widgetFormGrafico" ).hide();
+		$( "#widgetFormMapa" ).hide();
+
+		$("#btnMetodologia").bind( "click", function() {
+			showListaMetodologia('Metodología',this);
+		});
+
+		$('#capa_columnas_grafico').hide();
+
+		var listaVariables = [110924,110925,110926];
+
+		
+		var listaVariablesNombre = ['Comunidades y Ciudades Autónomas','Grupos ECOICOP','Tipo de dato'];
+
+		var posValGeo;
+		var plotNuevo;
+		var objVarMultiple = null;
+		var posObjVarMultiple = -1;
+		var objVarPeriodo;
+		var posObjVarPeriodo;
+		var listaVariablesNombreSelec;
+		var request;
+		var plot;
+		var coloresGrafica;
+		var colGrafico = '';
+		var operMultimple = false;
+		var objJplot;
+		var puedegraficar = true;
+		var variableMultiple = false;
+		var firstOptionCol = $("#columnas_grafico option:first-child");
+		var firstOptionEje = $("#ejeHorizontal option:first-child");
+	    var scr_w=null,scr_h=null;
+		var myLayout;
+		var configMapaActual;
+
+
+	   $(document).ajaxStart(function() {
+		    $("body").addClass('waiting');
+		}).ajaxStop(function() {
+		    $("body").removeClass('waiting');
+		});
+
+	   var valRaiz="";
+	   var vartipoMapa = "";
+
+	   
+
+		baseUrl = "t=50913";
+
+		onLoadAsync(function(){
+
+			
+
+			$("#mapaForm").submit(function(event){
+		   try{
+				pintaWidgetMapa();
+				resizeTabMapa(false);
+				$("#tituloMapa").empty();
+				$("#DivMapa").empty();
+
+			    if (request) {
+			        request.abort();
+			    }
+
+				if($('#p_widget_colorMapa').length==0){
+		    	 $('<input>', {
+		    		    type: 'hidden',
+		    		    id: 'p_widget_colorMapa',
+		    		    name: 'p_widget_colorMapa',
+		    		    class: 'widgetMapa',
+		    		    value: ''
+		    		}).appendTo('#mapaForm');}
+				if($('#p_widget_intervalos').length==0){
+		    	 $('<input>', {
+		    		    type: 'hidden',
+		    		    id: 'p_widget_intervalos',
+		    		    name: 'p_widget_intervalos',
+		    		    class: 'widgetMapa',
+		    		    value: ''
+		    		}).appendTo('#mapaForm');}
+				if($('#p_widget_declegend').length==0){
+		    	 $('<input>', {
+		    		    type: 'hidden',
+		    		    id: 'p_widget_declegend',
+		    		    name: 'p_widget_declegend',
+		    		    class: 'widgetMapa',
+		    		    value: ''
+		    		}).appendTo('#mapaForm');}
+
+			    // setup some local variables
+			    var $form = $(this);
+			    // let's select and cache all the fields
+			    var $inputs = $form.find("input, button");
+			    // serialize the data in the form
+			    var serializedData = $form.serialize();
+
+			    // let's disable the inputs for the duration of the ajax request
+			   // $inputs.prop("disabled", true);
+
+
+			  
+			     			posValGeo = "1";
+		    			
+
+		        tituloMapa="";
+
+		    	if ($("#radioMap").length>0)tituloMapa = "";
+
+		    	
+
+		        $.each($("input:checked" ), function( index, value ) {
+		        	if($(value).parent()[0].className=='labelcheckMapa'){
+			        	if($(value).attr("name")=="radioMap"){
+			        		vartipoMapa = $(value).val();
+
+			        	}
+		        	}
+				});
+
+			    $("#p_widget_vartipoMapa").val(vartipoMapa);
+			    $("#p_widget_intervalos").val($("#intervalos_svg").val());
+			    $("#p_widget_declegend").val($("#declegend_selec").val());
+
+		        var PerMapa=$( "input[name='periodo'][type=radio]:checked" ).val().split("~")[0];
+		        var AnyoMapa=$( "input[name='periodo'][type=radio]:checked" ).val().split("~")[1];
+		        var intervalos = $("#intervalos_svg").val()!=undefined?eval($("#intervalos_svg").val()):Object.keys(paleta_colores[0]).length;
+				var colorMapa = $("#p_widget_colorMapa").val();
+				var declegend = eval($("#declegend_selec").val());
+				var wArea = [$("#ContentMapa").width(),$("#ContentMapa").height()];
+				var t3Force = "&cc=104";
+
+		        $('#DivMapa').css('top', 'auto');
+
+		        var zoom = ["Acercar mapa","Alejar mapa","Restaurar tamaño del mapa"];
+				$('#DivMapa').css("position","relative");
+
+		        configMapaActual=visualINE({
+                    area: typeof wArea !== "undefined" ? wArea : [$("#DivMapa").width(),$("#DivMapa").height()],
+                    divDestino : typeof mapId !== "undefined" ? mapId : "DivMapa",
+                    tituloDestino: "tituloMapa",
+                    idMapa : "map" + vartipoMapa,
+                    titulo: "",                                        
+                    urlSVGJson: (typeof wmIne !== "undefined" ? wmIne : "") + "/wstempus/geosvg/ES/CONTORNOS/" + vartipoMapa+ ".svg" +"?anyo=" + ($(this).find("input[name=oper]").attr("value")=='353' ? (parseInt(AnyoMapa)+1) : AnyoMapa) + "&per=1&vraiz=" + valRaiz + "&varBase=" + vartipoMapa + t3Force,
+                    urlSVGDefJson: (typeof wmIne !== "undefined" ? wmIne : "") + "/menus/js/mapasINE/mapas/"+vartipoMapa+".svg",
+                    urlDataJson: typeof wmServ !== "undefined" ? wmServ +"MapaJsonServlet.htm?t=50913" : "MapaJsonServlet.htm?t=50913",                    
+                    urlDatajsonPOST:serializedData,
+                    sepMil: ".",
+                    sepDec: ",",
+                    intervalos: intervalos,
+                    colorMapa: colorMapa,
+                    declegend: declegend,
+                    zoom: typeof zoom !== "undefined" ? null : null
+                });                  
+
+		        var pWidgetFormMapa = $("#volverForm input[name='p_widgetFormMapa']").val();
+			    if(pWidgetFormMapa == "1"){
+			    	onLoadAsync(function(){
+			    		$('#btnWidgetMapa').click();
+			    		$("#volverForm input[name='p_widgetFormMapa']").val("0");
+			    	},10000);
+			    }
+
+			}catch(e){
+				alert(e);
+			}
+			 event.preventDefault();
+			}); //FORM Mapa Form
+
+
+			numTotalCeldasDat=80;
+
+		    var msgjs= "";
+		    if (msgjs!="") alerta(msgjs);
+
+
+
+			if(tabs_cumpleRequisitos) $('#tabs ul').css({'display':'block'});
+
+			//Añade la funcionalidad de comprimir menus
+			$("#accordion1").accordion({
+				activate: function(event, ui) {
+					ui.oldHeader.attr("tabindex","0");
+					ui.newHeader.attr("tabindex","0");
+				},
+				create: function(event, ui){
+					try{
+						ui.header.prevObject.attr("tabindex","0");
+					}catch(e){
+						//TODO
+					}
+				}
+		  	});
+
+			$( "#capaSelecMapa" ).accordion({
+				activate: function(event, ui) {
+					ui.oldHeader.attr("tabindex","0");
+					ui.newHeader.attr("tabindex","0");
+				},
+				create: function(event, ui){
+					try{
+						ui.header.prevObject.attr("tabindex","0");
+					}catch(e){
+						//TODO
+					}
+				}
+		  	});
+
+		   	var p_consulMap = ""=="1" || ""=="true" ;
+		   	var map = "1"=="1" || "1"=="true" ;
+		   	var cont = 0;
+		   	if(p_consulMap && grafico_cumpleRequisitos() ) cont++;
+		   	if(p_consulMap && map) cont++;
+			$("#tabs").tabs({
+				selected: cont,
+				create: function( event, ui ) {
+					resizeTabs();
+					var forceResize = function() {
+						resizeTabs(true);
+					};
+					$("#tabs li[role='tab']").click(forceResize);
+				},
+				beforeActivate: function( event, ui ) {
+					if(ui.newPanel.prop('id')=='tabs-tabla'){
+						hideGraphIconDownload();
+						showIconWidget('tabla');
+					}else if(ui.newPanel.prop('id')=='tabs-informe'){
+						hideGraphIconDownload();
+						showIconWidget('informe');
+					}else if(ui.newPanel.prop('id')=='tabs-mapa'){
+						showIconWidget('mapa');
+						pintaFormatoMapa();
+						if(!VisualINE_cumpleRequisitos()){
+							alert(avisoMapa);
+							return false;
+						}
+					}else if(ui.newPanel.prop('id')=='tabs-grafico'){
+						showIconWidget('grafico');
+						if(!grafico_cumpleRequisitos()){
+							alert(avisoGrafico);
+							return false;
+						}
+					}
+				},
+				activate : function( event, ui ) {
+					if (ui.newPanel.is("#tabs-grafico") && grafico_cumpleRequisitos()){
+						showGraphIconDownload();
+						inicializaLeyenda();
+					}
+					if (ui.newPanel.is("#tabs-mapa") && VisualINE_cumpleRequisitos()) {
+						muestraMapa();
+						muestraPrimeraOpcionMapa();
+					}
+					checkFormBtns();
+				}
+			});
+
+		   	setTimeout("InitBind()",1000);
+
+			enableOnResize();
+
+			
+			changeCheck($("#value110924-5275918")[0]);
+			
+
+			var param_widget_code = false;
+
+			var param_widget = false;
+			if (param_widget){
+				onLoadAsync(function(){selectTabIndex("tabs-tabla",0)},2);
+				if(param_widget_code){
+					onLoadAsync(function(){$('#btnWidgetTabla').click()},2);
+				}
+			}
+
+			var param_widget = false;
+			if (param_widget){
+				onLoadAsync(function(){selectTabIndex("tabs-informe",1)},2);
+				if(param_widget_code){
+					onLoadAsync(function(){$('#btnWidgetInforme').click()},2);
+				}
+			}
+
+			param_widget = false;
+			if (param_widget){
+				onLoadAsync(function(){selectTabIndex("tabs-grafico",2)},2);
+			}
+
+			param_widget = false;
+			if (param_widget){
+				onLoadAsync(function(){selectTabIndex("tabs-mapa",3)},2);
+			}
+
+			//});	//FIN onReady
+			  },2);	//FIN onReady
+
+			function selectTabIndex(id, def){
+				var index = $('#tabs a[href="#'+id+'"]').parent().index();
+				index = index > -1 ? index : def;
+				$( "#tabs" ).tabs({ active: index });
+			}
+		</script>
+
+	</body>
+</html>

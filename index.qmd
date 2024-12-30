@@ -1,0 +1,26 @@
+------------------------------------------------------------------------
+
+---
+title: "Evolución del IPC en España"
+author: "Laura y Emma"
+output: html_document
+links:
+  - icon: envelope
+    text: "e-mail Laura"
+    url: "mailto:marmola2@alumni.uv.es"
+  - icon: envelope
+    text: "e-mail Emma"
+    url: "mailto:emror@alumni.uv.es"
+---
+
+¡Hola!Somos Emma Roselló Ortiz y Laura Martí Molins. Somos estudiantes del Grado de Economía en la Universidad de Valencia.
+
+Esta web sirve para presentar el trabajo en equipo para la asignatura "Programación y manejo de datos en la era Del Big Data",  de la Universitat de València durante el curso 2024-2025.La página web de la asignatura puede verse aquí: <https://perezp44.github.io/intro-ds-24-25-web/>.
+
+La versión final del trabajo puede visualizarse en: <https://lauramarti7.github.io/trabajo_BigData/>.
+
+Nuestro trabajo lleva por título : "Evolución del IPC en España". 
+
+
+
+

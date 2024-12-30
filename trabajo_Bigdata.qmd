@@ -1,0 +1,632 @@
+---
+title: "Evolución del IPC en España"
+description: |
+  El Índice de precios de consumo (IPC) es una medida estadística de la evolución de los precios de los bienes y servicios que consume la población residente en viviendas familiares en España. El conjunto de bienes y servicios, que conforman la cesta de la compra, se obtiene básicamente del consumo de las familias y la importancia de cada uno de ellos en el cálculo del IPC está determinada por dicho consumo. Por lo tanto, en este trabajo analizaremos la evolución del IPC tanto en España como en cada comunidad autónoma.
+author:   
+  - name: Emma Roselló Ortiz (emror@alumni.uv.es)
+  - name: Laura Martí Molins (marmola2@alumni.uv.es)
+date: 2024-12-30                           #--
+categories: [trabajo BigData]      #--
+title-block-banner: true #- {true, false, "green","#AA0000"}
+title-block-banner-color: "#FFB5C5"    #-"#FFFFFF" 
+toc-depth: 3
+smooth-scroll: true
+format: 
+  html:
+    backgroundcolor: "#F1F3F4"
+    #embed-resources: true
+    link-external-newwindow: true
+code-tools: true
+code-link: true
+---
+
+## Introducción
+
+1.  **La primera sección** consiste en mostrar la evolución del IPC en España y relacionar los cambios de este con distintos eventos.
+
+2.  **La segunda sección** se basa en un análisis de la inflación a nivel nacional. Dentro de este apartado, abordamos los siguientes aspectos:
+
+    -   Evolución del IPC por Comunidades Autónomas
+    -   Impacto del coste de vida: Renta disponible: Relacionar el IPC con la renta media en cada región para analizar el impacto en el poder adquisitivo. Desigualdad regional: Explorar cómo las diferencias en el coste de vida afectan a la igualdad económica.
+
+3.  **Tercera sección donde analizaremos el impacto de sectores específicos**
+
+    ## Paquetes
+
+    ```{r}
+    library(knitr)
+    library(tidyr)
+    library(kableExtra)
+    library(ggplot2)
+    library(ggthemes)
+    library(dplyr)
+    library(sf)
+    library(tidyverse)
+    library(rio)
+    library(vroom)
+    ```
+
+## Evolución Nacional del IPC (2002-2023)
+
+```{r}
+#- Datos (IPC)
+
+ruta <- "./datos/series.csv"
+
+df_ipc <- rio::import(ruta)
+
+df_ipc <- df_ipc %>%
+  select (-c(1,2))
+
+df_ipc_m12 <- df_ipc %>%
+  filter (grepl("M12", Periodo))
+
+df_ipc_m12 <- df_ipc_m12 %>%
+  mutate(
+    Año = substr(Periodo, 1, 4),  
+    Mes = substr(Periodo, 5, 6)   
+  )
+
+
+df_ipc_m12 <- df_ipc_m12 %>%
+  filter(Año >= 2002 & Año <= 2024)
+
+df_ipc_m12 <- df_ipc_m12 %>%
+  mutate(
+    Total = gsub(",", ".", Total),  
+    Total = as.numeric(Total)       
+  )
+df_ipc_m12 <- df_ipc_m12 %>%
+  mutate(Año = as.numeric(Año))
+
+df_ipc_m12 <- df_ipc_m12 %>%
+  select(-Periodo, -1)
+
+
+
+p <-ggplot(df_ipc_m12, aes(x = Año, y = Total)) +
+  geom_line(linewidth = 1, color = "blue") +  # Línea azul
+  geom_hline(yintercept = 0, color = "black", linewidth = 0.8) +  # Línea negra en Y = 0
+  labs(
+    title = "Evolución del IPC Nacional",
+    x = "Año",
+    y = "Variación del Índice Nacional"
+  ) +
+  scale_x_continuous(breaks = seq(min(df_ipc_m12$Año), max(df_ipc_m12$Año), by = 1)) + 
+  scale_y_continuous(expand = c(0, 0)) +
+  theme_minimal() +
+ theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+axis.text.y = element_text(size = 8))
+
+
+
+p
+
+```
+
+La evolución del **Índice de Precios al Consumo (IPC)** en España entre 2002 y 2023 ha estado marcada por diversos factores económicos, tanto nacionales como internacionales, que han influido en los cambios de precios y en el comportamiento de la inflación. A lo largo de este período, se pueden identificar varios ciclos de alta inflación, estabilidad y crisis económicas, lo que refleja la interacción de elementos internos como la política económica, el consumo, y factores externos, como la crisis global o las fluctuaciones de los precios del petróleo.
+
+### Factores Clave que Impactan el IPC en España
+
+1.  **Crisis Económicas**:
+
+    -   La **crisis financiera global de 2008** afectó de forma significativa a la economía española. Este periodo se vio reflejado en una caída del IPC, llegando incluso a presentar una deflación en 2009, es decir, una disminución generalizada de los precios. La contracción de la demanda y el enfriamiento de la actividad económica fueron determinantes en esta disminución.
+
+    -   Posteriormente, la recuperación de la economía española fue gradual. A lo largo de la siguiente década, el IPC se mantuvo a niveles moderados, con algunas fluctuaciones, reflejando el proceso de consolidación económica del país.
+
+        2.  **Años de Alta Inflación (2007, 2011, 2017)**:
+
+    -   En **2007**, el IPC experimentó un aumento significativo debido al auge del mercado inmobiliario y a los altos precios del petróleo, lo que generó presiones inflacionistas, especialmente en productos energéticos y transportes.
+
+    -   **2011** fue otro año de alta inflación, impulsada principalmente por el aumento de los precios de los alimentos y la energía. Durante este periodo, las tensiones económicas y la inestabilidad política en Europa también contribuyeron a la subida de los precios.
+
+    -   En **2017**, aunque España comenzó a salir de la crisis económica, los precios de la energía y ciertos productos básicos, como los alimentos, continuaron empujando al alza el IPC. La recuperación económica no se tradujo inmediatamente en una reducción de la inflación, ya que los precios internacionales de la energía seguían afectando a la economía española.
+
+    3.  **Recuperación y Estabilidad (2015-2020)**:
+
+        Tras la crisis de 2008, España vivió un periodo de **recuperación económica moderada** entre 2015 y 2020, lo que se reflejó en un IPC relativamente bajo y estable. La economía creció a un ritmo moderado, pero con una inflación controlada, especialmente en comparación con las décadas anteriores.
+
+        Sin embargo, factores como los precios de los alimentos, los combustibles y las tarifas de servicios públicos (electricidad, gas) contribuyeron a cierta variabilidad en la inflación durante este periodo. A pesar de ello, no se registraron aumentos sustanciales en los precios generales.
+
+    4.  **Pandemia de COVID-19 (2020-2021)**:
+
+        La **pandemia del COVID-19** afectó a la economía mundial, lo que provocó una **deflación temporal** en muchos países, incluida España. La recesión económica derivada del confinamiento y la disminución de la demanda de bienes y servicios redujo la presión sobre los precios en 2020.
+
+        Sin embargo, hacia finales de 2021, el IPC comenzó a subir nuevamente. El aumento en los precios de la energía, los alimentos y otros productos básicos, junto con los efectos de la recuperación económica, impulsaron la inflación en este periodo.
+
+    5.  **Crisis Energética Global (2022-2023)**:
+
+        El **conflicto entre Rusia y Ucrania** en 2022 desencadenó una crisis energética global que afectó a los precios de la energía en Europa, provocando un fuerte aumento del IPC en España. Los precios de los combustibles, la electricidad y el gas experimentaron un incremento significativo, lo que contribuyó a una **inflación superior al 10%** en algunos momentos de 2022 y principios de 2023.
+
+        La crisis energética y la escasez de suministros, junto con las políticas de recuperación post-pandemia, provocaron una inflación persistente en los primeros meses de 2023, lo que afectó considerablemente al coste de vida en el país.
+
+        ## Desglose regional
+
+        ### IPC 1999-2008
+```{r}
+ ### IPC 1999-2008
+# Ruta al archivo CSV
+        ruta <- "./datos/ccaa1.csv"
+
+      
+        df_ccaa_orig <- rio::import(ruta)
+
+       
+        df <- janitor::clean_names(df_ccaa_orig)
+
+       
+        df <- df %>% rename(año = periodo)
+
+       
+        df <- df %>% mutate(total = stringr::str_replace(total, ",", "."))
+
+        df <- df %>%
+          select(-c(2)) %>%  
+          filter(grepl("M12", año)) %>%  
+          mutate(
+            año = substr(año, 1, 4),  
+            mes = substr(año, 5, 6)   
+          )
+
+        
+        df <- df %>%
+          filter(año >= 1999 & año <= 2008) %>%  
+          mutate(
+            total = gsub(",", ".", total),  
+            total = as.numeric(total),      
+            año = as.numeric(año)          
+          ) 
+              
+
+
+        df <- df %>%
+          rename(CCAA = comunidades_y_ciudades_aut_nomas)
+
+
+
+
+        df <- data.frame(lapply(df, function(x) iconv(x, from = "latin1", to = "UTF-8", sub = "byte")), stringsAsFactors = FALSE)
+
+
+        write.csv(df, file = "ccaa1.csv", fileEncoding = "UTF-8", row.names = FALSE)
+
+
+
+
+
+  
+        df <- df %>%
+          mutate(total = gsub(",", ".", total)) %>%   
+          mutate(total = as.numeric(total))  
+
+        
+        tabla_resumen <- df %>%
+          group_by(CCAA, año) %>%
+          summarise(Total = sum(total, na.rm = TRUE)) %>%
+          pivot_wider(
+            names_from = año,
+            values_from = Total
+          )
+
+        
+        kable(tabla_resumen, caption = "Resumen de IPC 1999-2008")
+
+```
+
+        ```{r}
+
+        # Ruta al archivo CSV
+        ruta <- "./datos/ccaa1.csv"
+
+        # Importar datos
+        df_ccaa_orig <- rio::import(ruta)
+
+        # Limpiar los nombres de las columnas
+        df <- janitor::clean_names(df_ccaa_orig)
+
+        # Renombrar la columna 'periodo' a 'año'
+        df <- df %>% rename(año = periodo)
+
+        # Reemplazar las comas por puntos en la columna 'total' (asumiendo que esta columna existe)
+        df <- df %>% mutate(total = stringr::str_replace(total, ",", "."))
+
+        # Seleccionar las columnas necesarias y filtrar los datos por el mes de diciembre (M12)
+        df <- df %>%
+          select(-c(2)) %>%  # Eliminar la segunda columna (verifica si es necesario)
+          filter(grepl("M12", año)) %>%  # Filtrar por mes de diciembre (M12)
+          mutate(
+            año = substr(año, 1, 4),  # Extraer los primeros 4 caracteres como año
+            mes = substr(año, 5, 6)   # Extraer los caracteres 5 y 6 como mes
+          )
+
+        # Filtrar los datos para los años entre 1999 y 2008 y procesar la columna 'total'
+        df <- df %>%
+          filter(año >= 1999 & año <= 2008) %>%  # Filtrar años entre 1999 y 2008
+          mutate(
+            total = gsub(",", ".", total),  # Reemplazar comas por puntos
+            total = as.numeric(total),      # Convertir la columna 'total' a numérico
+            año = as.numeric(año)          # Convertir la columna 'año' a numérico
+          ) 
+              
+
+
+        df <- df %>%
+          rename(CCAA = comunidades_y_ciudades_aut_nomas)
+
+
+
+
+        df <- data.frame(lapply(df, function(x) iconv(x, from = "latin1", to = "UTF-8", sub = "byte")), stringsAsFactors = FALSE)
+
+
+        write.csv(df, file = "ccaa1.csv", fileEncoding = "UTF-8", row.names = FALSE)
+
+
+
+
+
+        # Asegúrate de que 'total' se convierte en numérico
+        df <- df %>%
+          mutate(total = gsub(",", ".", total)) %>%   # Reemplaza las comas por puntos
+          mutate(total = as.numeric(total))  # Convierte 'total' a numérico
+
+        # Crear la tabla resumen con los años en las columnas y las CCAA en las filas
+        tabla_resumen <- df %>%
+          group_by(CCAA, año) %>%
+          summarise(Total = sum(total, na.rm = TRUE)) %>%
+          pivot_wider(
+            names_from = año,
+            values_from = Total
+          )
+
+        # Mostrar la tabla resumen
+        kable(tabla_resumen, caption = "Resumen de IPC 1999-2008")
+
+
+
+
+```
+
+     
+
+        # Ruta al archivo CSV
+        ruta <- "./datos/ccaa1.csv"
+
+        # Importar datos
+        df_ccaa_orig <- rio::import(ruta)
+
+        # Limpiar los nombres de las columnas
+        df <- janitor::clean_names(df_ccaa_orig)
+
+        # Renombrar la columna 'periodo' a 'año'
+        df <- df %>% rename(año = periodo)
+
+        # Reemplazar las comas por puntos en la columna 'total' (asumiendo que esta columna existe)
+        df <- df %>% mutate(total = stringr::str_replace(total, ",", "."))
+
+        # Seleccionar las columnas necesarias y filtrar los datos por el mes de diciembre (M12)
+        df <- df %>%
+          select(-c(2)) %>%  # Eliminar la segunda columna (verifica si es necesario)
+          filter(grepl("M12", año)) %>%  # Filtrar por mes de diciembre (M12)
+          mutate(
+            año = substr(año, 1, 4),  # Extraer los primeros 4 caracteres como año
+            mes = substr(año, 5, 6)   # Extraer los caracteres 5 y 6 como mes
+          )
+
+        # Filtrar los datos para los años entre 1999 y 2008 y procesar la columna 'total'
+        df <- df %>%
+          filter(año >= 1999 & año <= 2008) %>%  # Filtrar años entre 1999 y 2008
+          mutate(
+            total = gsub(",", ".", total),  # Reemplazar comas por puntos
+            total = as.numeric(total),      # Convertir la columna 'total' a numérico
+            año = as.numeric(año)          # Convertir la columna 'año' a numérico
+          ) 
+              
+
+
+        df <- df %>%
+          rename(CCAA = comunidades_y_ciudades_aut_nomas)
+
+
+
+
+        df <- data.frame(lapply(df, function(x) iconv(x, from = "latin1", to = "UTF-8", sub = "byte")), stringsAsFactors = FALSE)
+
+
+        write.csv(df, file = "ccaa1.csv", fileEncoding = "UTF-8", row.names = FALSE)
+
+
+
+
+
+        # Asegúrate de que 'total' se convierte en numérico
+        df <- df %>%
+          mutate(total = gsub(",", ".", total)) %>%   # Reemplaza las comas por puntos
+          mutate(total = as.numeric(total))  # Convierte 'total' a numérico
+
+        # Crear la tabla resumen con los años en las columnas y las CCAA en las filas
+        tabla_resumen <- df %>%
+          group_by(CCAA, año) %>%
+          summarise(Total = sum(total, na.rm = TRUE)) %>%
+          pivot_wider(
+            names_from = año,
+            values_from = Total
+          )
+
+        # Mostrar la tabla resumen
+        kable(tabla_resumen, caption = "Resumen de IPC 1999-2008")
+
+
+
+
+        ```
+
+Analizando la tabla de "Resumen de IPC 1999-2008", podemos destacar las siguientes observaciones:
+
+\
+
+1\. Comunidades con mayores variaciones:
+
+\- Cataluña: Presenta los valores más altos de IPC, llegando a 4.3% en 2005.
+
+\- País Vasco: Muestra variaciones elevadas, alcanzando 3.8% en 2000 y 3.4% en 2001.
+
+\- Navarra: Registra variaciones significativas, con un pico de 4.1% en 2000.
+
+\- Cantabria: Experimenta variaciones por encima del 3% en varios años.
+
+\
+
+2\. Evolución general:
+
+\- La mayoría de las comunidades muestran una tendencia creciente del IPC durante el periodo 1999-2008.
+
+\- Se observan picos de inflación en los años 2000 y 2005, con valores superiores al 4% en algunas regiones.
+
+\- Después de 2005, se aprecia una moderación de las variaciones del IPC, con valores en torno al 2-3% en la mayoría de las comunidades.
+
+3\. Comportamiento por comunidades:
+
+\- Comunidades como Cataluña, País Vasco y Navarra mantienen variaciones más elevadas a lo largo de todo el periodo.
+
+\- Otras regiones, como Castilla-La Mancha y Extremadura, presentan variaciones más contenidas.
+
+\- Algunas comunidades, como Andalucía y Aragón, muestran un comportamiento más estable en torno al 2-3% durante la mayor parte del periodo.
+
+### IPC 2009-2019
+
+```{r}
+
+ruta <- "./datos/ccaa2.csv"
+
+
+
+df_ccaa_orig2 <- rio::import(ruta)
+
+
+
+df_ccaa2 <- df_ccaa_orig2 %>%
+  select (-c(2,3))
+
+df_ccaa2 <- df_ccaa2 %>%
+  filter (grepl("M12", Periodo))
+
+df_ccaa2 <- df_ccaa2 %>%
+  mutate(
+    Año = substr(Periodo, 1, 4), 
+    Mes = substr(Periodo, 5, 6)   
+  )
+
+
+df_ccaa2 <- df_ccaa2 %>%
+  filter(Año >= 2009 & Año <= 2019)
+# Limpiar la columna Valor
+df_ccaa2 <- df_ccaa2%>%
+  mutate(
+    Total = gsub(",", ".", Total),  
+    Total = as.numeric(Total)       
+  )
+df_ccaa2 <- df_ccaa2 %>%
+  mutate(Año = as.numeric(Año))
+
+
+
+df_ccaa2 <- df_ccaa2 %>%
+  select(-Periodo)
+
+colnames(df_ccaa2)[1] <- make.names("CCAA", unique = TRUE)
+
+df_ccaa2 <- data.frame(lapply(df_ccaa2, function(x) iconv(x, from = "latin1", to = "UTF-8", sub = "byte")), stringsAsFactors = FALSE)
+
+
+
+write.csv(df_ccaa2, file = "ccaa2.csv", fileEncoding = "UTF-8", row.names = FALSE)
+
+library(knitr)
+
+
+df_ccaa2 <- df_ccaa2 %>%
+  mutate(
+    Total = gsub(",", ".", Total),  
+    Total = as.numeric(Total)       
+  )
+
+
+df_ccaa2 <- df_ccaa2 %>%
+  select(CCAA, Año, Total) %>%    
+  filter(Año >= 2009 & Año <= 2019) %>%    
+  group_by(CCAA, Año) %>%  
+  summarise(Total = sum(Total, na.rm = TRUE)) %>%    
+  pivot_wider(    
+    names_from = Año, 
+    values_from = Total
+  )
+
+
+kable(df_ccaa2, caption = "Resumen de IPC por Comunidad Autónoma (2009-2019)")
+
+```
+
+Analizando la tabla, podemos observar las siguientes comunidades autónomas con las mayores variaciones del IPC durante el periodo 2009-2019:
+
+-   Cataluña:
+
+    -   Presenta la mayor variación del IPC, con un pico de 3.6% en 2012.
+
+    -   Muestra una tendencia de crecimiento sostenido en la inflación, pasando de 1.2% en 2009 a 0.9% en 2019.
+
+-   País Vasco:
+
+    -   Registra una de las variaciones más altas, llegando a 3.6% en 2012.
+
+    -   Después de una caída en 2013-2014, la variación se recupera y se mantiene en torno al 1% en los últimos años.
+
+-   Navarra:
+
+    -   Experimenta una variación máxima del 2.8% en 2010, seguida de una tendencia a la baja.
+
+    -   En 2019, la variación se sitúa en 1.3%, una de las más altas del periodo.
+
+        -   Cantabria:
+
+            -   Presenta una variación elevada, alcanzando 3.6% en 2012.
+
+            -   Después de una caída en 2013-2014, la variación se recupera y se mantiene en torno al 1% en los últimos años.
+
+                En general, el periodo 2009-2019 se caracteriza por:
+
+        -   Una tendencia de crecimiento sostenido de la inflación en la mayoría de las comunidades autónomas, con picos máximos en 2012.
+
+        -   Después de la crisis económica de 2008-2009, se observa una recuperación gradual de la inflación.
+
+        -   En los últimos años, se aprecia una moderación de las variaciones del IPC, situándose en torno al 1% en la mayoría de las comunidades.
+
+        -   Algunas comunidades, como Cataluña y País Vasco, mantienen variaciones más elevadas a lo largo de todo el periodo.
+
+        Esta evolución refleja la recuperación de la actividad económica y el consumo tras la crisis, así como la estabilización de los precios en los últimos años.
+
+        ### IPC 2020-2023
+
+      
+```{r}
+ruta <- "./datos/ccaa2.csv"
+
+
+
+        df_ccaa_orig2 <- rio::import(ruta)
+
+
+
+
+        df_ccaa3 <- df_ccaa_orig2 %>%
+          select (-c(2,3))
+
+        df_ccaa3 <- df_ccaa3 %>%
+          filter (grepl("M12", Periodo))
+
+        df_ccaa3 <- df_ccaa3 %>%
+          mutate(
+            Año = substr(Periodo, 1, 4),  
+            Mes = substr(Periodo, 5, 6)   
+          )
+
+
+        df_ccaa3 <- df_ccaa3 %>%
+          filter(Año >= 2019 & Año <= 2023)
+
+        df_ccaa3 <- df_ccaa3 %>%
+          mutate(
+            Total = gsub(",", ".", Total),  
+            Total = as.numeric(Total)       
+          )
+        df_ccaa3 <- df_ccaa3 %>%
+          mutate(Año = as.numeric(Año))
+
+        df_ccaa3 <- df_ccaa3 %>%
+          select(-Periodo)
+
+        colnames(df_ccaa3)[1] <- make.names("CCAA", unique = TRUE)
+
+        df_ccaa3 <- data.frame(lapply(df_ccaa3, function(x) iconv(x, from = "latin1", to = "UTF-8", sub = "byte")), stringsAsFactors = FALSE)
+
+
+
+        write.csv(df_ccaa3, file = "ccaa2.csv", fileEncoding = "UTF-8", row.names = FALSE)
+
+
+
+
+        df_ccaa3 <- df_ccaa3 %>%
+          mutate(
+            Total = gsub(",", ".", Total),  
+            Total = as.numeric(Total)       
+          )
+
+
+        df_ccaa3 <- df_ccaa3 %>%
+          select(CCAA, Año, Total) %>%    
+          group_by(CCAA, Año) %>%   
+          summarise(Total = sum(Total, na.rm = TRUE)) %>%    
+          pivot_wider(    
+            names_from = Año, 
+            values_from = Total
+          )
+
+
+
+        kable(df_ccaa3, caption = "Resumen de IPC por Comunidad Autónoma (2019-2023)")
+
+
+```
+
+
+        -   Navarra:
+
+            -   Presenta la mayor variación del IPC en 2019 con 1.3%.
+
+            -   Esto se debe probablemente a factores como la inflación general en España y la evolución de los precios en sectores clave como la energía, alimentación, vivienda, etc.
+
+        -   País Vasco:
+
+            -   Registra la segunda mayor variación en 2019 con 1.2%.
+
+            -   Al igual que Navarra, esto puede estar relacionado con la dinámica inflacionista a nivel nacional y la evolución de los precios en sectores relevantes para la región.
+
+        -   Castilla y León, Baleares :
+
+            -   Estas comunidades muestran variaciones del IPC por encima del 1% en 2019.
+
+        -   Factores como la estructura productiva, el peso de determinados sectores y la evolución de los precios en los mismos pueden explicar estas mayores variaciones.
+
+        En general, las comunidades con mayor variación suelen ser aquellas con economías más diversificadas y expuestas a la evolución de precios a nivel nacional. Factores como la composición sectorial, la dependencia de determinados bienes y servicios, y la dinámica inflacionista general pueden influir en estas diferencias regionales.
+
+        Analizando la información proporcionada en la tabla, podemos hacer las siguientes observaciones sobre la evolución general del IPC en las comunidades autónomas de España durante el periodo 2019-2023:
+
+        -   Período 2019-2020:
+
+            -   En 2019, todas las comunidades presentaron variaciones positivas del IPC, con valores entre 0.3% y 1.3%.
+
+            -   En 2020, la mayoría de las comunidades registraron variaciones negativas, reflejando una caída generalizada de la inflación debido al impacto de la pandemia de COVID-19. Las caídas más pronunciadas se observaron en Castilla-La Mancha (-0.9%) y la Comunidad de Madrid (-0.8%).
+
+        -   Período 2021-2022:
+
+            -   A partir de 2021, se observa un repunte generalizado de la inflación en todas las comunidades.
+
+            -   Las variaciones del IPC alcanzaron valores entre 5.5% y 7.6% en 2021, evidenciando un fuerte aumento de los precios.
+
+            -   En 2022, las variaciones siguieron siendo elevadas, aunque ligeramente inferiores a 2021, situándose entre 4.9% y 6.8%.
+
+        -   Período 2023:
+
+            -   Para 2023, se aprecia una desaceleración del ritmo de crecimiento del IPC en todas las comunidades.
+
+            -   Las variaciones se sitúan entre 2.4% y 3.8%, mostrando una tendencia a la moderación de la inflación.
+
+
+
+
+
+
+
+```
