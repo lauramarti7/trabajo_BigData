@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Emma Roselló Ortiz (emror@alumni.uv.es)">
+<meta name="author" content="Laura Martí Molins (marmola2@alumni.uv.es)">
+<meta name="dcterms.date" content="2024-12-30">
+<meta name="description" content="El Índice de precios de consumo (IPC) es una medida estadística de la evolución de los precios de los bienes y servicios que consume la población residente en viviendas familiares en España. El conjunto de bienes y servicios, que conforman la cesta de la compra, se obtiene básicamente del consumo de las familias y la importancia de cada uno de ellos en el cálculo del IPC está determinada por dicho consumo. Por lo tanto, en este trabajo analizaremos la evolución del IPC tanto en España como en cada comunidad autónoma.">
+<title>Evolución del IPC en España</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><style>html{ scroll-behavior: smooth; }</style>
+</head>
+<body class="fullcontent">
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Evolución del IPC en España</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+                  <div>
+        <div class="description">
+          <p>El Índice de precios de consumo (IPC) es una medida estadística de la evolución de los precios de los bienes y servicios que consume la población residente en viviendas familiares en España. El conjunto de bienes y servicios, que conforman la cesta de la compra, se obtiene básicamente del consumo de las familias y la importancia de cada uno de ellos en el cálculo del IPC está determinada por dicho consumo. Por lo tanto, en este trabajo analizaremos la evolución del IPC tanto en España como en cada comunidad autónoma.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">trabajo BigData</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-contents">
+               <p>Emma Roselló Ortiz (emror@alumni.uv.es) </p>
+               <p>Laura Martí Molins (marmola2@alumni.uv.es) </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 30, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>#Introducción</p>
+<p>La primera sección consiste en mostrar la evolución del IPC en España y relacionar los cambios de este con distintos eventos.</p>
+<p>La segunda sección se basa en un análisis de la inflación a nivel nacional. Dentro de este apartado, abordamos los siguientes aspectos:</p>
+<p>Evolución del IPC por Comunidades Autónomas</p>
+<p>Impacto del coste de vida: Renta disponible: Relacionar el IPC con la renta media en cada región para analizar el impacto en el poder adquisitivo. Desigualdad regional: Explorar cómo las diferencias en el coste de vida afectan a la igualdad económica.</p>
+<p>Tercera sección donde analizaremos el impacto de sectores específicos</p>
+<p>#Paquetes</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://haozhu233.github.io/kableExtra/">kableExtra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jrnold.github.io/ggthemes/">ggthemes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:kableExtra':
+
+    group_rows</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.11.0, GDAL 3.5.3, PROJ 9.1.0; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.5
+✔ lubridate 1.9.3     ✔ stringr   1.5.1
+✔ purrr     1.0.2     ✔ tibble    3.2.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()     masks stats::filter()
+✖ dplyr::group_rows() masks kableExtra::group_rows()
+✖ dplyr::lag()        masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gesistsa.github.io/rio/">rio</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vroom.r-lib.org">vroom</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'vroom'
+
+The following objects are masked from 'package:readr':
+
+    as.col_spec, col_character, col_date, col_datetime, col_double,
+    col_factor, col_guess, col_integer, col_logical, col_number,
+    col_skip, col_time, cols, cols_condense, cols_only, date_names,
+    date_names_lang, date_names_langs, default_locale, fwf_cols,
+    fwf_empty, fwf_positions, fwf_widths, locale, output_column,
+    problems, spec</code></pre>
+</div>
+</div>
+<p>#Evolución Nacional del IPC (2002-2023)</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#- Datos (IPC)</span></span>
+<span></span>
+<span><span class="va">ruta</span> <span class="op">&lt;-</span> <span class="st">"./datos/series.csv"</span></span>
+<span></span>
+<span><span class="va">df_ipc</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="http://gesistsa.github.io/rio/reference/import.html">import</a></span><span class="op">(</span><span class="va">ruta</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ipc</span> <span class="op">&lt;-</span> <span class="va">df_ipc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span> <span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ipc_m12</span> <span class="op">&lt;-</span> <span class="va">df_ipc</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"M12"</span>, <span class="va">Periodo</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ipc_m12</span> <span class="op">&lt;-</span> <span class="va">df_ipc_m12</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    Año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">Periodo</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>,  </span>
+<span>    Mes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">Periodo</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>   </span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ipc_m12</span> <span class="op">&lt;-</span> <span class="va">df_ipc_m12</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Año</span> <span class="op">&gt;=</span> <span class="fl">2002</span> <span class="op">&amp;</span> <span class="va">Año</span> <span class="op">&lt;=</span> <span class="fl">2024</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ipc_m12</span> <span class="op">&lt;-</span> <span class="va">df_ipc_m12</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">Total</span><span class="op">)</span>,  </span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Total</span><span class="op">)</span>       </span>
+<span>  <span class="op">)</span></span>
+<span><span class="va">df_ipc_m12</span> <span class="op">&lt;-</span> <span class="va">df_ipc_m12</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Año</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ipc_m12</span> <span class="op">&lt;-</span> <span class="va">df_ipc_m12</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Periodo</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_ipc_m12</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Año</span>, y <span class="op">=</span> <span class="va">Total</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1</span>, color <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Línea azul</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"black"</span>, linewidth <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># Línea negra en Y = 0</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Evolución del IPC Nacional"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Año"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Variación del Índice Nacional"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">df_ipc_m12</span><span class="op">$</span><span class="va">Año</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">df_ipc_m12</span><span class="op">$</span><span class="va">Año</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">0.5</span>, hjust <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La evolución del Índice de Precios al Consumo (IPC) en España entre 2002 y 2023 ha estado marcada por diversos factores económicos, tanto nacionales como internacionales, que han influido en los cambios de precios y en el comportamiento de la inflación. A lo largo de este período, se pueden identificar varios ciclos de alta inflación, estabilidad y crisis económicas, lo que refleja la interacción de elementos internos como la política económica, el consumo, y factores externos, como la crisis global o las fluctuaciones de los precios del petróleo.</p>
+<p>Factores Clave que Impactan el IPC en España</p>
+<p>Crisis Económicas:</p>
+<p>La crisis financiera global de 2008 afectó de forma significativa a la economía española. Este periodo se vio reflejado en una caída del IPC, llegando incluso a presentar una deflación en 2009, es decir, una disminución generalizada de los precios. La contracción de la demanda y el enfriamiento de la actividad económica fueron determinantes en esta disminución.</p>
+<p>Posteriormente, la recuperación de la economía española fue gradual. A lo largo de la siguiente década, el IPC se mantuvo a niveles moderados, con algunas fluctuaciones, reflejando el proceso de consolidación económica del país.</p>
+<p>Años de Alta Inflación (2007, 2011, 2017):</p>
+<p>En 2007, el IPC experimentó un aumento significativo debido al auge del mercado inmobiliario y a los altos precios del petróleo, lo que generó presiones inflacionistas, especialmente en productos energéticos y transportes.</p>
+<p>2011 fue otro año de alta inflación, impulsada principalmente por el aumento de los precios de los alimentos y la energía. Durante este periodo, las tensiones económicas y la inestabilidad política en Europa también contribuyeron a la subida de los precios.</p>
+<p>En 2017, aunque España comenzó a salir de la crisis económica, los precios de la energía y ciertos productos básicos, como los alimentos, continuaron empujando al alza el IPC. La recuperación económica no se tradujo inmediatamente en una reducción de la inflación, ya que los precios internacionales de la energía seguían afectando a la economía española.</p>
+<p>Recuperación y Estabilidad (2015-2020):</p>
+<p>Tras la crisis de 2008, España vivió un periodo de recuperación económica moderada entre 2015 y 2020, lo que se reflejó en un IPC relativamente bajo y estable. La economía creció a un ritmo moderado, pero con una inflación controlada, especialmente en comparación con las décadas anteriores.</p>
+<p>Sin embargo, factores como los precios de los alimentos, los combustibles y las tarifas de servicios públicos (electricidad, gas) contribuyeron a cierta variabilidad en la inflación durante este periodo. A pesar de ello, no se registraron aumentos sustanciales en los precios generales.</p>
+<p>Pandemia de COVID-19 (2020-2021):</p>
+<p>La pandemia del COVID-19 afectó a la economía mundial, lo que provocó una deflación temporal en muchos países, incluida España. La recesión económica derivada del confinamiento y la disminución de la demanda de bienes y servicios redujo la presión sobre los precios en 2020.</p>
+<p>Sin embargo, hacia finales de 2021, el IPC comenzó a subir nuevamente. El aumento en los precios de la energía, los alimentos y otros productos básicos, junto con los efectos de la recuperación económica, impulsaron la inflación en este periodo.</p>
+<p>Crisis Energética Global (2022-2023):</p>
+<p>El conflicto entre Rusia y Ucrania en 2022 desencadenó una crisis energética global que afectó a los precios de la energía en Europa, provocando un fuerte aumento del IPC en España. Los precios de los combustibles, la electricidad y el gas experimentaron un incremento significativo, lo que contribuyó a una inflación superior al 10% en algunos momentos de 2022 y principios de 2023.</p>
+<p>La crisis energética y la escasez de suministros, junto con las políticas de recuperación post-pandemia, provocaron una inflación persistente en los primeros meses de 2023, lo que afectó considerablemente al coste de vida en el país.</p>
+<p>#Desglose regional</p>
+<p>##IPC 1999-2008</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ruta</span> <span class="op">&lt;-</span> <span class="st">"./datos/ccaa1.csv"</span></span>
+<span></span>
+<span>      </span>
+<span>        <span class="va">df_ccaa_orig</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="http://gesistsa.github.io/rio/reference/import.html">import</a></span><span class="op">(</span><span class="va">ruta</span><span class="op">)</span></span>
+<span></span>
+<span>       </span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">janitor</span><span class="fu">::</span><span class="fu"><a href="https://sfirke.github.io/janitor/reference/clean_names.html">clean_names</a></span><span class="op">(</span><span class="va">df_ccaa_orig</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8
+Warning in grepl(x = string, pattern = current_unicode, fixed = TRUE): input
+string 1 is invalid UTF-8</code></pre>
+</div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>año <span class="op">=</span> <span class="va">periodo</span><span class="op">)</span></span>
+<span></span>
+<span>       </span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>total <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">total</span>, <span class="st">","</span>, <span class="st">"."</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"M12"</span>, <span class="va">año</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">año</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>,  </span>
+<span>            mes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">año</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>   </span>
+<span>          <span class="op">)</span></span>
+<span></span>
+<span>        </span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">año</span> <span class="op">&gt;=</span> <span class="fl">1999</span> <span class="op">&amp;</span> <span class="va">año</span> <span class="op">&lt;=</span> <span class="fl">2008</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">total</span><span class="op">)</span>,  </span>
+<span>            total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">total</span><span class="op">)</span>,      </span>
+<span>            año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">año</span><span class="op">)</span>          </span>
+<span>          <span class="op">)</span> </span>
+<span>              </span>
+<span></span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>CCAA <span class="op">=</span> <span class="va">comunidades_y_ciudades_aut_nomas</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">df</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span><span class="op">(</span><span class="va">x</span>, from <span class="op">=</span> <span class="st">"latin1"</span>, to <span class="op">=</span> <span class="st">"UTF-8"</span>, sub <span class="op">=</span> <span class="st">"byte"</span><span class="op">)</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">df</span>, file <span class="op">=</span> <span class="st">"ccaa1.csv"</span>, fileEncoding <span class="op">=</span> <span class="st">"UTF-8"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span>  </span>
+<span>        <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">total</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   </span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">total</span><span class="op">)</span><span class="op">)</span>  </span>
+<span></span>
+<span>        </span>
+<span>        <span class="va">tabla_resumen</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">CCAA</span>, <span class="va">año</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">total</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span></span>
+<span>            names_from <span class="op">=</span> <span class="va">año</span>,</span>
+<span>            values_from <span class="op">=</span> <span class="va">Total</span></span>
+<span>          <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'CCAA'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>        <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">tabla_resumen</span>, caption <span class="op">=</span> <span class="st">"Resumen de IPC 1999-2008"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Resumen de IPC 1999-2008</caption>
+<colgroup>
+<col style="width: 38%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">CCAA</th>
+<th style="text-align: right;">1999</th>
+<th style="text-align: right;">2000</th>
+<th style="text-align: right;">2001</th>
+<th style="text-align: right;">2002</th>
+<th style="text-align: right;">2003</th>
+<th style="text-align: right;">2004</th>
+<th style="text-align: right;">2005</th>
+<th style="text-align: right;">2006</th>
+<th style="text-align: right;">2007</th>
+<th style="text-align: right;">2008</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01 Andalucía</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02 Aragón</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">03 Asturias, Principado de</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">04 Balears, Illes</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">05 Canarias</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">06 Cantabria</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">07 Castilla y León</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">1.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">08 Castilla - La Mancha</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09 Cataluña</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10 Comunitat Valenciana</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">1.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11 Extremadura</td>
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12 Galicia</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13 Madrid, Comunidad de</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14 Murcia, Región de</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">4.8</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">1.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15 Navarra, Comunidad Foral de</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16 País Vasco</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">3.7</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">1.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17 Rioja, La</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">4.5</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">4.4</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">1.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18 Ceuta</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">19 Melilla</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">4.2</td>
+<td style="text-align: right;">4.3</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">1.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Analizando la tabla de “Resumen de IPC 1999-2008”, podemos destacar las siguientes observaciones:</p>
+<ol type="1">
+<li>Comunidades con mayores variaciones:</li>
+</ol>
+<ul>
+<li><p>Cataluña: Presenta los valores más altos de IPC, llegando a 4.3% en 2005.</p></li>
+<li><p>País Vasco: Muestra variaciones elevadas, alcanzando 3.8% en 2000 y 3.4% en 2001.</p></li>
+<li><p>Navarra: Registra variaciones significativas, con un pico de 4.1% en 2000.</p></li>
+<li><p>Cantabria: Experimenta variaciones por encima del 3% en varios años.</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Evolución general:</li>
+</ol>
+<ul>
+<li><p>La mayoría de las comunidades muestran una tendencia creciente del IPC durante el periodo 1999-2008.</p></li>
+<li><p>Se observan picos de inflación en los años 2000 y 2005, con valores superiores al 4% en algunas regiones.</p></li>
+<li><p>Después de 2005, se aprecia una moderación de las variaciones del IPC, con valores en torno al 2-3% en la mayoría de las comunidades.</p></li>
+</ul>
+<ol start="3" type="1">
+<li>Comportamiento por comunidades:</li>
+</ol>
+<ul>
+<li><p>Comunidades como Cataluña, País Vasco y Navarra mantienen variaciones más elevadas a lo largo de todo el periodo.</p></li>
+<li><p>Otras regiones, como Castilla-La Mancha y Extremadura, presentan variaciones más contenidas.</p></li>
+<li><p>Algunas comunidades, como Andalucía y Aragón, muestran un comportamiento más estable en torno al 2-3% durante la mayor parte del periodo.</p></li>
+</ul>
+<p>##IPC 2009-2019</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ruta</span> <span class="op">&lt;-</span> <span class="st">"./datos/ccaa2.csv"</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ccaa_orig2</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="http://gesistsa.github.io/rio/reference/import.html">import</a></span><span class="op">(</span><span class="va">ruta</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa_orig2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span> <span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): unable to translate
+'Comunidades y Ciudades Aut&lt;f3&gt;nomas' to a wide string</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): input string 1 is
+invalid</code></pre>
+</div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"M12"</span>, <span class="va">Periodo</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    Año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">Periodo</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>, </span>
+<span>    Mes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">Periodo</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>   </span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Año</span> <span class="op">&gt;=</span> <span class="fl">2009</span> <span class="op">&amp;</span> <span class="va">Año</span> <span class="op">&lt;=</span> <span class="fl">2019</span><span class="op">)</span></span>
+<span><span class="co"># Limpiar la columna Valor</span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">Total</span><span class="op">)</span>,  </span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Total</span><span class="op">)</span>       </span>
+<span>  <span class="op">)</span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Año</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Periodo</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): unable to translate
+'Comunidades y Ciudades Aut&lt;f3&gt;nomas' to a wide string
+Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): input string 1 is
+invalid</code></pre>
+</div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_ccaa2</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span><span class="op">(</span><span class="st">"CCAA"</span>, unique <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">df_ccaa2</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span><span class="op">(</span><span class="va">x</span>, from <span class="op">=</span> <span class="st">"latin1"</span>, to <span class="op">=</span> <span class="st">"UTF-8"</span>, sub <span class="op">=</span> <span class="st">"byte"</span><span class="op">)</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">df_ccaa2</span>, file <span class="op">=</span> <span class="st">"ccaa2.csv"</span>, fileEncoding <span class="op">=</span> <span class="st">"UTF-8"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/knitr/">knitr</a></span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">Total</span><span class="op">)</span>,  </span>
+<span>    Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Total</span><span class="op">)</span>       </span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">df_ccaa2</span> <span class="op">&lt;-</span> <span class="va">df_ccaa2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">CCAA</span>, <span class="va">Año</span>, <span class="va">Total</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Año</span> <span class="op">&gt;=</span> <span class="fl">2009</span> <span class="op">&amp;</span> <span class="va">Año</span> <span class="op">&lt;=</span> <span class="fl">2019</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">CCAA</span>, <span class="va">Año</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Total</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>    </span>
+<span>    names_from <span class="op">=</span> <span class="va">Año</span>, </span>
+<span>    values_from <span class="op">=</span> <span class="va">Total</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'CCAA'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">df_ccaa2</span>, caption <span class="op">=</span> <span class="st">"Resumen de IPC por Comunidad Autónoma (2009-2019)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Resumen de IPC por Comunidad Autónoma (2009-2019)</caption>
+<colgroup>
+<col style="width: 36%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">CCAA</th>
+<th style="text-align: right;">2009</th>
+<th style="text-align: right;">2010</th>
+<th style="text-align: right;">2011</th>
+<th style="text-align: right;">2012</th>
+<th style="text-align: right;">2013</th>
+<th style="text-align: right;">2014</th>
+<th style="text-align: right;">2015</th>
+<th style="text-align: right;">2016</th>
+<th style="text-align: right;">2017</th>
+<th style="text-align: right;">2018</th>
+<th style="text-align: right;">2019</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01 Andalucía</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02 Aragón</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">0.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">03 Asturias, Principado de</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">-1.1</td>
+<td style="text-align: right;">-0.2</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">04 Balears, Illes</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">-0.8</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">05 Canarias</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">-1.1</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">06 Cantabria</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">2.3</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">-1.3</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">07 Castilla y León</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">08 Castilla - La Mancha</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">3.4</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">-1.5</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09 Cataluña</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">-0.7</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10 Comunitat Valenciana</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11 Extremadura</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12 Galicia</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">-1.0</td>
+<td style="text-align: right;">-0.2</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13 Madrid, Comunidad de</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">-1.1</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14 Murcia, Región de</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.2</td>
+<td style="text-align: right;">2.9</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">-1.3</td>
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15 Navarra, Comunidad Foral de</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">-1.2</td>
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: right;">1.8</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">1.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16 País Vasco</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">-0.7</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17 Rioja, La</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">-0.9</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18 Ceuta</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">2.2</td>
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: right;">-0.5</td>
+<td style="text-align: right;">-0.6</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">0.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">19 Melilla</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">1.6</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">-0.6</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Analizando la tabla, podemos observar las siguientes comunidades autónomas con las mayores variaciones del IPC durante el periodo 2009-2019:</p>
+<p>Cataluña:</p>
+<p>Presenta la mayor variación del IPC, con un pico de 3.6% en 2012.</p>
+<p>Muestra una tendencia de crecimiento sostenido en la inflación, pasando de 1.2% en 2009 a 0.9% en 2019.</p>
+<p>País Vasco:</p>
+<p>Registra una de las variaciones más altas, llegando a 3.6% en 2012.</p>
+<p>Después de una caída en 2013-2014, la variación se recupera y se mantiene en torno al 1% en los últimos años.</p>
+<p>Navarra:</p>
+<p>Experimenta una variación máxima del 2.8% en 2010, seguida de una tendencia a la baja.</p>
+<p>En 2019, la variación se sitúa en 1.3%, una de las más altas del periodo.</p>
+<p>Cantabria:</p>
+<p>Presenta una variación elevada, alcanzando 3.6% en 2012.</p>
+<p>Después de una caída en 2013-2014, la variación se recupera y se mantiene en torno al 1% en los últimos años.</p>
+<p>En general, el periodo 2009-2019 se caracteriza por:</p>
+<p>Una tendencia de crecimiento sostenido de la inflación en la mayoría de las comunidades autónomas, con picos máximos en 2012.</p>
+<p>Después de la crisis económica de 2008-2009, se observa una recuperación gradual de la inflación.</p>
+<p>En los últimos años, se aprecia una moderación de las variaciones del IPC, situándose en torno al 1% en la mayoría de las comunidades.</p>
+<p>Algunas comunidades, como Cataluña y País Vasco, mantienen variaciones más elevadas a lo largo de todo el periodo.</p>
+<p>Esta evolución refleja la recuperación de la actividad económica y el consumo tras la crisis, así como la estabilización de los precios en los últimos años.</p>
+<p>##IPC 2020-2023</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ruta</span> <span class="op">&lt;-</span> <span class="st">"./datos/ccaa2.csv"</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa_orig2</span> <span class="op">&lt;-</span> <span class="fu">rio</span><span class="fu">::</span><span class="fu"><a href="http://gesistsa.github.io/rio/reference/import.html">import</a></span><span class="op">(</span><span class="va">ruta</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa_orig2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span> <span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): unable to translate
+'Comunidades y Ciudades Aut&lt;f3&gt;nomas' to a wide string</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): input string 1 is
+invalid</code></pre>
+</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"M12"</span>, <span class="va">Periodo</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            Año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">Periodo</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>,  </span>
+<span>            Mes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html">substr</a></span><span class="op">(</span><span class="va">Periodo</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>   </span>
+<span>          <span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Año</span> <span class="op">&gt;=</span> <span class="fl">2019</span> <span class="op">&amp;</span> <span class="va">Año</span> <span class="op">&lt;=</span> <span class="fl">2023</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">Total</span><span class="op">)</span>,  </span>
+<span>            Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Total</span><span class="op">)</span>       </span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Año <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Año</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Periodo</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): unable to translate
+'Comunidades y Ciudades Aut&lt;f3&gt;nomas' to a wide string
+Warning in grep("^[.][.](?:[.]|[1-9][0-9]*)$", names): input string 1 is
+invalid</code></pre>
+</div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>        <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df_ccaa3</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span><span class="op">(</span><span class="st">"CCAA"</span>, unique <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">df_ccaa3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span><span class="op">(</span><span class="va">x</span>, from <span class="op">=</span> <span class="st">"latin1"</span>, to <span class="op">=</span> <span class="st">"UTF-8"</span>, sub <span class="op">=</span> <span class="st">"byte"</span><span class="op">)</span><span class="op">)</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">df_ccaa3</span>, file <span class="op">=</span> <span class="st">"ccaa2.csv"</span>, fileEncoding <span class="op">=</span> <span class="st">"UTF-8"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>            Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">","</span>, <span class="st">"."</span>, <span class="va">Total</span><span class="op">)</span>,  </span>
+<span>            Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Total</span><span class="op">)</span>       </span>
+<span>          <span class="op">)</span></span>
+<span></span>
+<span>        <span class="va">df_ccaa3</span> <span class="op">&lt;-</span> <span class="va">df_ccaa3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">CCAA</span>, <span class="va">Año</span>, <span class="va">Total</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    </span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">CCAA</span>, <span class="va">Año</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>   </span>
+<span>          <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>Total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Total</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>    </span>
+<span>          <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>    </span>
+<span>            names_from <span class="op">=</span> <span class="va">Año</span>, </span>
+<span>            values_from <span class="op">=</span> <span class="va">Total</span></span>
+<span>          <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'CCAA'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>        <span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">df_ccaa3</span>, caption <span class="op">=</span> <span class="st">"Resumen de IPC por Comunidad Autónoma (2019-2023)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Resumen de IPC por Comunidad Autónoma (2019-2023)</caption>
+<thead><tr class="header">
+<th style="text-align: left;">CCAA</th>
+<th style="text-align: right;">2019</th>
+<th style="text-align: right;">2020</th>
+<th style="text-align: right;">2021</th>
+<th style="text-align: right;">2022</th>
+<th style="text-align: right;">2023</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">01 Andalucía</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">6.7</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02 Aragón</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">-0.6</td>
+<td style="text-align: right;">7.2</td>
+<td style="text-align: right;">5.9</td>
+<td style="text-align: right;">2.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">03 Asturias, Principado de</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">-0.6</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">2.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">04 Balears, Illes</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">6.5</td>
+<td style="text-align: right;">5.5</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">05 Canarias</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">-0.1</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">06 Cantabria</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">-0.5</td>
+<td style="text-align: right;">6.8</td>
+<td style="text-align: right;">5.3</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">07 Castilla y León</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">-0.7</td>
+<td style="text-align: right;">7.3</td>
+<td style="text-align: right;">6.5</td>
+<td style="text-align: right;">2.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">08 Castilla - La Mancha</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">-0.9</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">6.8</td>
+<td style="text-align: right;">3.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">09 Cataluña</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">-0.6</td>
+<td style="text-align: right;">6.1</td>
+<td style="text-align: right;">5.2</td>
+<td style="text-align: right;">3.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10 Comunitat Valenciana</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">-0.5</td>
+<td style="text-align: right;">6.8</td>
+<td style="text-align: right;">5.5</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11 Extremadura</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">-0.5</td>
+<td style="text-align: right;">7.1</td>
+<td style="text-align: right;">6.5</td>
+<td style="text-align: right;">2.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12 Galicia</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">6.7</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">3.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13 Madrid, Comunidad de</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">-0.8</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">2.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14 Murcia, Región de</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">6.3</td>
+<td style="text-align: right;">6.3</td>
+<td style="text-align: right;">3.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15 Navarra, Comunidad Foral de</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">-0.6</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">2.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16 País Vasco</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">-0.3</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">3.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">17 Rioja, La</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">-0.8</td>
+<td style="text-align: right;">7.0</td>
+<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">3.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">18 Ceuta</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">-0.4</td>
+<td style="text-align: right;">5.5</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">3.3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">19 Melilla</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">6.9</td>
+<td style="text-align: right;">6.6</td>
+<td style="text-align: right;">3.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- -->
+
+
+</main><!-- /main column --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Evolución del IPC en España"</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="an">description:</span><span class="co"> |</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">  El Índice de precios de consumo (IPC) es una medida estadística de la evolución de los precios de los bienes y servicios que consume la población residente en viviendas familiares en España. El conjunto de bienes y servicios, que conforman la cesta de la compra, se obtiene básicamente del consumo de las familias y la importancia de cada uno de ellos en el cálculo del IPC está determinada por dicho consumo. Por lo tanto, en este trabajo analizaremos la evolución del IPC tanto en España como en cada comunidad autónoma.</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co">   </span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Emma Roselló Ortiz (emror@alumni.uv.es)</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">  - name: Laura Martí Molins (marmola2@alumni.uv.es)</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2024-12-30                           #--</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="an">categories:</span><span class="co"> [trabajo BigData]      #--</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true #- {true, false, "green","#AA0000"}</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="an">toc-depth:</span><span class="co"> 3</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="an">smooth-scroll:</span><span class="co"> true</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co">    backgroundcolor: "#F1F3F4"</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co">    #embed-resources: true</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a><span class="co">    link-external-newwindow: true</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="an">code-tools:</span><span class="co"> true</span></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="an">code-link:</span><span class="co"> true</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>#Introducción</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>La primera sección consiste en mostrar la evolución del IPC en España y relacionar los cambios de este con distintos eventos.</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>La segunda sección se basa en un análisis de la inflación a nivel nacional. Dentro de este apartado, abordamos los siguientes aspectos:</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>Evolución del IPC por Comunidades Autónomas</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>Impacto del coste de vida: Renta disponible: Relacionar el IPC con la renta media en cada región para analizar el impacto en el poder adquisitivo. Desigualdad regional: Explorar cómo las diferencias en el coste de vida afectan a la igualdad económica.</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>Tercera sección donde analizaremos el impacto de sectores específicos</span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>#Paquetes</span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vroom)</span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a>#Evolución Nacional del IPC (2002-2023)</span>
+<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a><span class="co">#- Datos (IPC)</span></span>
+<span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a>ruta <span class="ot">&lt;-</span> <span class="st">"./datos/series.csv"</span></span>
+<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-58"><a href="#cb35-58" aria-hidden="true" tabindex="-1"></a>df_ipc <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(ruta)</span>
+<span id="cb35-59"><a href="#cb35-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a>df_ipc <span class="ot">&lt;-</span> df_ipc <span class="sc">%&gt;%</span></span>
+<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span> (<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb35-62"><a href="#cb35-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a>df_ipc_m12 <span class="ot">&lt;-</span> df_ipc <span class="sc">%&gt;%</span></span>
+<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (<span class="fu">grepl</span>(<span class="st">"M12"</span>, Periodo))</span>
+<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a>df_ipc_m12 <span class="ot">&lt;-</span> df_ipc_m12 <span class="sc">%&gt;%</span></span>
+<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-68"><a href="#cb35-68" aria-hidden="true" tabindex="-1"></a>    Año <span class="ot">=</span> <span class="fu">substr</span>(Periodo, <span class="dv">1</span>, <span class="dv">4</span>),  </span>
+<span id="cb35-69"><a href="#cb35-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mes =</span> <span class="fu">substr</span>(Periodo, <span class="dv">5</span>, <span class="dv">6</span>)   </span>
+<span id="cb35-70"><a href="#cb35-70" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-71"><a href="#cb35-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-72"><a href="#cb35-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a>df_ipc_m12 <span class="ot">&lt;-</span> df_ipc_m12 <span class="sc">%&gt;%</span></span>
+<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Año <span class="sc">&gt;=</span> <span class="dv">2002</span> <span class="sc">&amp;</span> Año <span class="sc">&lt;=</span> <span class="dv">2024</span>)</span>
+<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-76"><a href="#cb35-76" aria-hidden="true" tabindex="-1"></a>df_ipc_m12 <span class="ot">&lt;-</span> df_ipc_m12 <span class="sc">%&gt;%</span></span>
+<span id="cb35-77"><a href="#cb35-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-78"><a href="#cb35-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Total),  </span>
+<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">as.numeric</span>(Total)       </span>
+<span id="cb35-80"><a href="#cb35-80" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-81"><a href="#cb35-81" aria-hidden="true" tabindex="-1"></a>df_ipc_m12 <span class="ot">&lt;-</span> df_ipc_m12 <span class="sc">%&gt;%</span></span>
+<span id="cb35-82"><a href="#cb35-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Año <span class="ot">=</span> <span class="fu">as.numeric</span>(Año))</span>
+<span id="cb35-83"><a href="#cb35-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-84"><a href="#cb35-84" aria-hidden="true" tabindex="-1"></a>df_ipc_m12 <span class="ot">&lt;-</span> df_ipc_m12 <span class="sc">%&gt;%</span></span>
+<span id="cb35-85"><a href="#cb35-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Periodo, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb35-86"><a href="#cb35-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-87"><a href="#cb35-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-88"><a href="#cb35-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-89"><a href="#cb35-89" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span><span class="fu">ggplot</span>(df_ipc_m12, <span class="fu">aes</span>(<span class="at">x =</span> Año, <span class="at">y =</span> Total)) <span class="sc">+</span></span>
+<span id="cb35-90"><a href="#cb35-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span>  <span class="co"># Línea azul</span></span>
+<span id="cb35-91"><a href="#cb35-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span>  <span class="co"># Línea negra en Y = 0</span></span>
+<span id="cb35-92"><a href="#cb35-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb35-93"><a href="#cb35-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Evolución del IPC Nacional"</span>,</span>
+<span id="cb35-94"><a href="#cb35-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Año"</span>,</span>
+<span id="cb35-95"><a href="#cb35-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Variación del Índice Nacional"</span></span>
+<span id="cb35-96"><a href="#cb35-96" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-97"><a href="#cb35-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(df_ipc_m12<span class="sc">$</span>Año), <span class="fu">max</span>(df_ipc_m12<span class="sc">$</span>Año), <span class="at">by =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb35-98"><a href="#cb35-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb35-99"><a href="#cb35-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb35-100"><a href="#cb35-100" aria-hidden="true" tabindex="-1"></a> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb35-101"><a href="#cb35-101" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb35-102"><a href="#cb35-102" aria-hidden="true" tabindex="-1"></a><span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>))</span>
+<span id="cb35-103"><a href="#cb35-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-104"><a href="#cb35-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-105"><a href="#cb35-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-106"><a href="#cb35-106" aria-hidden="true" tabindex="-1"></a>p</span>
+<span id="cb35-107"><a href="#cb35-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-108"><a href="#cb35-108" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-109"><a href="#cb35-109" aria-hidden="true" tabindex="-1"></a>La evolución del Índice de Precios al Consumo (IPC) en España entre 2002 y 2023 ha estado marcada por diversos factores económicos, tanto nacionales como internacionales, que han influido en los cambios de precios y en el comportamiento de la inflación. A lo largo de este período, se pueden identificar varios ciclos de alta inflación, estabilidad y crisis económicas, lo que refleja la interacción de elementos internos como la política económica, el consumo, y factores externos, como la crisis global o las fluctuaciones de los precios del petróleo.</span>
+<span id="cb35-110"><a href="#cb35-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-111"><a href="#cb35-111" aria-hidden="true" tabindex="-1"></a>Factores Clave que Impactan el IPC en España</span>
+<span id="cb35-112"><a href="#cb35-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-113"><a href="#cb35-113" aria-hidden="true" tabindex="-1"></a>Crisis Económicas:</span>
+<span id="cb35-114"><a href="#cb35-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-115"><a href="#cb35-115" aria-hidden="true" tabindex="-1"></a>La crisis financiera global de 2008 afectó de forma significativa a la economía española. Este periodo se vio reflejado en una caída del IPC, llegando incluso a presentar una deflación en 2009, es decir, una disminución generalizada de los precios. La contracción de la demanda y el enfriamiento de la actividad económica fueron determinantes en esta disminución.</span>
+<span id="cb35-116"><a href="#cb35-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-117"><a href="#cb35-117" aria-hidden="true" tabindex="-1"></a>Posteriormente, la recuperación de la economía española fue gradual. A lo largo de la siguiente década, el IPC se mantuvo a niveles moderados, con algunas fluctuaciones, reflejando el proceso de consolidación económica del país.</span>
+<span id="cb35-118"><a href="#cb35-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-119"><a href="#cb35-119" aria-hidden="true" tabindex="-1"></a>Años de Alta Inflación (2007, 2011, 2017):</span>
+<span id="cb35-120"><a href="#cb35-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-121"><a href="#cb35-121" aria-hidden="true" tabindex="-1"></a>En 2007, el IPC experimentó un aumento significativo debido al auge del mercado inmobiliario y a los altos precios del petróleo, lo que generó presiones inflacionistas, especialmente en productos energéticos y transportes.</span>
+<span id="cb35-122"><a href="#cb35-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-123"><a href="#cb35-123" aria-hidden="true" tabindex="-1"></a>2011 fue otro año de alta inflación, impulsada principalmente por el aumento de los precios de los alimentos y la energía. Durante este periodo, las tensiones económicas y la inestabilidad política en Europa también contribuyeron a la subida de los precios.</span>
+<span id="cb35-124"><a href="#cb35-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-125"><a href="#cb35-125" aria-hidden="true" tabindex="-1"></a>En 2017, aunque España comenzó a salir de la crisis económica, los precios de la energía y ciertos productos básicos, como los alimentos, continuaron empujando al alza el IPC. La recuperación económica no se tradujo inmediatamente en una reducción de la inflación, ya que los precios internacionales de la energía seguían afectando a la economía española.</span>
+<span id="cb35-126"><a href="#cb35-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-127"><a href="#cb35-127" aria-hidden="true" tabindex="-1"></a>Recuperación y Estabilidad (2015-2020):</span>
+<span id="cb35-128"><a href="#cb35-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-129"><a href="#cb35-129" aria-hidden="true" tabindex="-1"></a>Tras la crisis de 2008, España vivió un periodo de recuperación económica moderada entre 2015 y 2020, lo que se reflejó en un IPC relativamente bajo y estable. La economía creció a un ritmo moderado, pero con una inflación controlada, especialmente en comparación con las décadas anteriores.</span>
+<span id="cb35-130"><a href="#cb35-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-131"><a href="#cb35-131" aria-hidden="true" tabindex="-1"></a>Sin embargo, factores como los precios de los alimentos, los combustibles y las tarifas de servicios públicos (electricidad, gas) contribuyeron a cierta variabilidad en la inflación durante este periodo. A pesar de ello, no se registraron aumentos sustanciales en los precios generales.</span>
+<span id="cb35-132"><a href="#cb35-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-133"><a href="#cb35-133" aria-hidden="true" tabindex="-1"></a>Pandemia de COVID-19 (2020-2021):</span>
+<span id="cb35-134"><a href="#cb35-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-135"><a href="#cb35-135" aria-hidden="true" tabindex="-1"></a>La pandemia del COVID-19 afectó a la economía mundial, lo que provocó una deflación temporal en muchos países, incluida España. La recesión económica derivada del confinamiento y la disminución de la demanda de bienes y servicios redujo la presión sobre los precios en 2020.</span>
+<span id="cb35-136"><a href="#cb35-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-137"><a href="#cb35-137" aria-hidden="true" tabindex="-1"></a>Sin embargo, hacia finales de 2021, el IPC comenzó a subir nuevamente. El aumento en los precios de la energía, los alimentos y otros productos básicos, junto con los efectos de la recuperación económica, impulsaron la inflación en este periodo.</span>
+<span id="cb35-138"><a href="#cb35-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-139"><a href="#cb35-139" aria-hidden="true" tabindex="-1"></a>Crisis Energética Global (2022-2023):</span>
+<span id="cb35-140"><a href="#cb35-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-141"><a href="#cb35-141" aria-hidden="true" tabindex="-1"></a>El conflicto entre Rusia y Ucrania en 2022 desencadenó una crisis energética global que afectó a los precios de la energía en Europa, provocando un fuerte aumento del IPC en España. Los precios de los combustibles, la electricidad y el gas experimentaron un incremento significativo, lo que contribuyó a una inflación superior al 10% en algunos momentos de 2022 y principios de 2023.</span>
+<span id="cb35-142"><a href="#cb35-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-143"><a href="#cb35-143" aria-hidden="true" tabindex="-1"></a>La crisis energética y la escasez de suministros, junto con las políticas de recuperación post-pandemia, provocaron una inflación persistente en los primeros meses de 2023, lo que afectó considerablemente al coste de vida en el país.</span>
+<span id="cb35-144"><a href="#cb35-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-145"><a href="#cb35-145" aria-hidden="true" tabindex="-1"></a>#Desglose regional</span>
+<span id="cb35-146"><a href="#cb35-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-147"><a href="#cb35-147" aria-hidden="true" tabindex="-1"></a>##IPC 1999-2008</span>
+<span id="cb35-150"><a href="#cb35-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-151"><a href="#cb35-151" aria-hidden="true" tabindex="-1"></a>ruta <span class="ot">&lt;-</span> <span class="st">"./datos/ccaa1.csv"</span></span>
+<span id="cb35-152"><a href="#cb35-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-153"><a href="#cb35-153" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb35-154"><a href="#cb35-154" aria-hidden="true" tabindex="-1"></a>        df_ccaa_orig <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(ruta)</span>
+<span id="cb35-155"><a href="#cb35-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-156"><a href="#cb35-156" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb35-157"><a href="#cb35-157" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> janitor<span class="sc">::</span><span class="fu">clean_names</span>(df_ccaa_orig)</span>
+<span id="cb35-158"><a href="#cb35-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-159"><a href="#cb35-159" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb35-160"><a href="#cb35-160" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">rename</span>(año <span class="ot">=</span> periodo)</span>
+<span id="cb35-161"><a href="#cb35-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-162"><a href="#cb35-162" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb35-163"><a href="#cb35-163" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">total =</span> stringr<span class="sc">::</span><span class="fu">str_replace</span>(total, <span class="st">","</span>, <span class="st">"."</span>))</span>
+<span id="cb35-164"><a href="#cb35-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-165"><a href="#cb35-165" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb35-166"><a href="#cb35-166" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb35-167"><a href="#cb35-167" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"M12"</span>, año)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb35-168"><a href="#cb35-168" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(</span>
+<span id="cb35-169"><a href="#cb35-169" aria-hidden="true" tabindex="-1"></a>            año <span class="ot">=</span> <span class="fu">substr</span>(año, <span class="dv">1</span>, <span class="dv">4</span>),  </span>
+<span id="cb35-170"><a href="#cb35-170" aria-hidden="true" tabindex="-1"></a>            <span class="at">mes =</span> <span class="fu">substr</span>(año, <span class="dv">5</span>, <span class="dv">6</span>)   </span>
+<span id="cb35-171"><a href="#cb35-171" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb35-172"><a href="#cb35-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-173"><a href="#cb35-173" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb35-174"><a href="#cb35-174" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb35-175"><a href="#cb35-175" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(año <span class="sc">&gt;=</span> <span class="dv">1999</span> <span class="sc">&amp;</span> año <span class="sc">&lt;=</span> <span class="dv">2008</span>) <span class="sc">%&gt;%</span>  </span>
+<span id="cb35-176"><a href="#cb35-176" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(</span>
+<span id="cb35-177"><a href="#cb35-177" aria-hidden="true" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, total),  </span>
+<span id="cb35-178"><a href="#cb35-178" aria-hidden="true" tabindex="-1"></a>            <span class="at">total =</span> <span class="fu">as.numeric</span>(total),      </span>
+<span id="cb35-179"><a href="#cb35-179" aria-hidden="true" tabindex="-1"></a>            año <span class="ot">=</span> <span class="fu">as.numeric</span>(año)          </span>
+<span id="cb35-180"><a href="#cb35-180" aria-hidden="true" tabindex="-1"></a>          ) </span>
+<span id="cb35-181"><a href="#cb35-181" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb35-182"><a href="#cb35-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-183"><a href="#cb35-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-184"><a href="#cb35-184" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb35-185"><a href="#cb35-185" aria-hidden="true" tabindex="-1"></a>          <span class="fu">rename</span>(<span class="at">CCAA =</span> comunidades_y_ciudades_aut_nomas)</span>
+<span id="cb35-186"><a href="#cb35-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-187"><a href="#cb35-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-188"><a href="#cb35-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-189"><a href="#cb35-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-190"><a href="#cb35-190" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">lapply</span>(df, <span class="cf">function</span>(x) <span class="fu">iconv</span>(x, <span class="at">from =</span> <span class="st">"latin1"</span>, <span class="at">to =</span> <span class="st">"UTF-8"</span>, <span class="at">sub =</span> <span class="st">"byte"</span>)), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb35-191"><a href="#cb35-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-192"><a href="#cb35-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-193"><a href="#cb35-193" aria-hidden="true" tabindex="-1"></a>        <span class="fu">write.csv</span>(df, <span class="at">file =</span> <span class="st">"ccaa1.csv"</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb35-194"><a href="#cb35-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-195"><a href="#cb35-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-196"><a href="#cb35-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-197"><a href="#cb35-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-198"><a href="#cb35-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-199"><a href="#cb35-199" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-200"><a href="#cb35-200" aria-hidden="true" tabindex="-1"></a>        df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb35-201"><a href="#cb35-201" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(<span class="at">total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, total)) <span class="sc">%&gt;%</span>   </span>
+<span id="cb35-202"><a href="#cb35-202" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(<span class="at">total =</span> <span class="fu">as.numeric</span>(total))  </span>
+<span id="cb35-203"><a href="#cb35-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-204"><a href="#cb35-204" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb35-205"><a href="#cb35-205" aria-hidden="true" tabindex="-1"></a>        tabla_resumen <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb35-206"><a href="#cb35-206" aria-hidden="true" tabindex="-1"></a>          <span class="fu">group_by</span>(CCAA, año) <span class="sc">%&gt;%</span></span>
+<span id="cb35-207"><a href="#cb35-207" aria-hidden="true" tabindex="-1"></a>          <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-208"><a href="#cb35-208" aria-hidden="true" tabindex="-1"></a>          <span class="fu">pivot_wider</span>(</span>
+<span id="cb35-209"><a href="#cb35-209" aria-hidden="true" tabindex="-1"></a>            <span class="at">names_from =</span> año,</span>
+<span id="cb35-210"><a href="#cb35-210" aria-hidden="true" tabindex="-1"></a>            <span class="at">values_from =</span> Total</span>
+<span id="cb35-211"><a href="#cb35-211" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb35-212"><a href="#cb35-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-213"><a href="#cb35-213" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb35-214"><a href="#cb35-214" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable</span>(tabla_resumen, <span class="at">caption =</span> <span class="st">"Resumen de IPC 1999-2008"</span>)</span>
+<span id="cb35-215"><a href="#cb35-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-216"><a href="#cb35-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-217"><a href="#cb35-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-218"><a href="#cb35-218" aria-hidden="true" tabindex="-1"></a>Analizando la tabla de "Resumen de IPC 1999-2008", podemos destacar las siguientes observaciones:</span>
+<span id="cb35-219"><a href="#cb35-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-220"><a href="#cb35-220" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Comunidades con mayores variaciones:</span>
+<span id="cb35-221"><a href="#cb35-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-222"><a href="#cb35-222" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cataluña: Presenta los valores más altos de IPC, llegando a 4.3% en 2005.</span>
+<span id="cb35-223"><a href="#cb35-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-224"><a href="#cb35-224" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>País Vasco: Muestra variaciones elevadas, alcanzando 3.8% en 2000 y 3.4% en 2001.</span>
+<span id="cb35-225"><a href="#cb35-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-226"><a href="#cb35-226" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Navarra: Registra variaciones significativas, con un pico de 4.1% en 2000.</span>
+<span id="cb35-227"><a href="#cb35-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-228"><a href="#cb35-228" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cantabria: Experimenta variaciones por encima del 3% en varios años.</span>
+<span id="cb35-229"><a href="#cb35-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-230"><a href="#cb35-230" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Evolución general:</span>
+<span id="cb35-231"><a href="#cb35-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-232"><a href="#cb35-232" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>La mayoría de las comunidades muestran una tendencia creciente del IPC durante el periodo 1999-2008.</span>
+<span id="cb35-233"><a href="#cb35-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-234"><a href="#cb35-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Se observan picos de inflación en los años 2000 y 2005, con valores superiores al 4% en algunas regiones.</span>
+<span id="cb35-235"><a href="#cb35-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-236"><a href="#cb35-236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Después de 2005, se aprecia una moderación de las variaciones del IPC, con valores en torno al 2-3% en la mayoría de las comunidades.</span>
+<span id="cb35-237"><a href="#cb35-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-238"><a href="#cb35-238" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Comportamiento por comunidades:</span>
+<span id="cb35-239"><a href="#cb35-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-240"><a href="#cb35-240" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comunidades como Cataluña, País Vasco y Navarra mantienen variaciones más elevadas a lo largo de todo el periodo.</span>
+<span id="cb35-241"><a href="#cb35-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-242"><a href="#cb35-242" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Otras regiones, como Castilla-La Mancha y Extremadura, presentan variaciones más contenidas.</span>
+<span id="cb35-243"><a href="#cb35-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-244"><a href="#cb35-244" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Algunas comunidades, como Andalucía y Aragón, muestran un comportamiento más estable en torno al 2-3% durante la mayor parte del periodo.</span>
+<span id="cb35-245"><a href="#cb35-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-246"><a href="#cb35-246" aria-hidden="true" tabindex="-1"></a>##IPC 2009-2019</span>
+<span id="cb35-249"><a href="#cb35-249" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-250"><a href="#cb35-250" aria-hidden="true" tabindex="-1"></a>ruta <span class="ot">&lt;-</span> <span class="st">"./datos/ccaa2.csv"</span></span>
+<span id="cb35-251"><a href="#cb35-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-252"><a href="#cb35-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-253"><a href="#cb35-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-254"><a href="#cb35-254" aria-hidden="true" tabindex="-1"></a>df_ccaa_orig2 <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(ruta)</span>
+<span id="cb35-255"><a href="#cb35-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-256"><a href="#cb35-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-257"><a href="#cb35-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-258"><a href="#cb35-258" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa_orig2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-259"><a href="#cb35-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span> (<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb35-260"><a href="#cb35-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-261"><a href="#cb35-261" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-262"><a href="#cb35-262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (<span class="fu">grepl</span>(<span class="st">"M12"</span>, Periodo))</span>
+<span id="cb35-263"><a href="#cb35-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-264"><a href="#cb35-264" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-265"><a href="#cb35-265" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-266"><a href="#cb35-266" aria-hidden="true" tabindex="-1"></a>    Año <span class="ot">=</span> <span class="fu">substr</span>(Periodo, <span class="dv">1</span>, <span class="dv">4</span>), </span>
+<span id="cb35-267"><a href="#cb35-267" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mes =</span> <span class="fu">substr</span>(Periodo, <span class="dv">5</span>, <span class="dv">6</span>)   </span>
+<span id="cb35-268"><a href="#cb35-268" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-269"><a href="#cb35-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-270"><a href="#cb35-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-271"><a href="#cb35-271" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-272"><a href="#cb35-272" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Año <span class="sc">&gt;=</span> <span class="dv">2009</span> <span class="sc">&amp;</span> Año <span class="sc">&lt;=</span> <span class="dv">2019</span>)</span>
+<span id="cb35-273"><a href="#cb35-273" aria-hidden="true" tabindex="-1"></a><span class="co"># Limpiar la columna Valor</span></span>
+<span id="cb35-274"><a href="#cb35-274" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2<span class="sc">%&gt;%</span></span>
+<span id="cb35-275"><a href="#cb35-275" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-276"><a href="#cb35-276" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Total),  </span>
+<span id="cb35-277"><a href="#cb35-277" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">as.numeric</span>(Total)       </span>
+<span id="cb35-278"><a href="#cb35-278" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-279"><a href="#cb35-279" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-280"><a href="#cb35-280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Año <span class="ot">=</span> <span class="fu">as.numeric</span>(Año))</span>
+<span id="cb35-281"><a href="#cb35-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-282"><a href="#cb35-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-283"><a href="#cb35-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-284"><a href="#cb35-284" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-285"><a href="#cb35-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Periodo)</span>
+<span id="cb35-286"><a href="#cb35-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-287"><a href="#cb35-287" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_ccaa2)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="st">"CCAA"</span>, <span class="at">unique =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-288"><a href="#cb35-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-289"><a href="#cb35-289" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">lapply</span>(df_ccaa2, <span class="cf">function</span>(x) <span class="fu">iconv</span>(x, <span class="at">from =</span> <span class="st">"latin1"</span>, <span class="at">to =</span> <span class="st">"UTF-8"</span>, <span class="at">sub =</span> <span class="st">"byte"</span>)), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb35-290"><a href="#cb35-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-291"><a href="#cb35-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-292"><a href="#cb35-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-293"><a href="#cb35-293" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df_ccaa2, <span class="at">file =</span> <span class="st">"ccaa2.csv"</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb35-294"><a href="#cb35-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-295"><a href="#cb35-295" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb35-296"><a href="#cb35-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-297"><a href="#cb35-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-298"><a href="#cb35-298" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-299"><a href="#cb35-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-300"><a href="#cb35-300" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Total),  </span>
+<span id="cb35-301"><a href="#cb35-301" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total =</span> <span class="fu">as.numeric</span>(Total)       </span>
+<span id="cb35-302"><a href="#cb35-302" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-303"><a href="#cb35-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-304"><a href="#cb35-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-305"><a href="#cb35-305" aria-hidden="true" tabindex="-1"></a>df_ccaa2 <span class="ot">&lt;-</span> df_ccaa2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-306"><a href="#cb35-306" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(CCAA, Año, Total) <span class="sc">%&gt;%</span>    </span>
+<span id="cb35-307"><a href="#cb35-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Año <span class="sc">&gt;=</span> <span class="dv">2009</span> <span class="sc">&amp;</span> Año <span class="sc">&lt;=</span> <span class="dv">2019</span>) <span class="sc">%&gt;%</span>    </span>
+<span id="cb35-308"><a href="#cb35-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(CCAA, Año) <span class="sc">%&gt;%</span>  </span>
+<span id="cb35-309"><a href="#cb35-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span>    </span>
+<span id="cb35-310"><a href="#cb35-310" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(    </span>
+<span id="cb35-311"><a href="#cb35-311" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> Año, </span>
+<span id="cb35-312"><a href="#cb35-312" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Total</span>
+<span id="cb35-313"><a href="#cb35-313" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb35-314"><a href="#cb35-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-315"><a href="#cb35-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-316"><a href="#cb35-316" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df_ccaa2, <span class="at">caption =</span> <span class="st">"Resumen de IPC por Comunidad Autónoma (2009-2019)"</span>)</span>
+<span id="cb35-317"><a href="#cb35-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-318"><a href="#cb35-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-319"><a href="#cb35-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-320"><a href="#cb35-320" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb35-321"><a href="#cb35-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-322"><a href="#cb35-322" aria-hidden="true" tabindex="-1"></a>Analizando la tabla, podemos observar las siguientes comunidades autónomas con las mayores variaciones del IPC durante el periodo 2009-2019:</span>
+<span id="cb35-323"><a href="#cb35-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-324"><a href="#cb35-324" aria-hidden="true" tabindex="-1"></a>Cataluña:</span>
+<span id="cb35-325"><a href="#cb35-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-326"><a href="#cb35-326" aria-hidden="true" tabindex="-1"></a>Presenta la mayor variación del IPC, con un pico de 3.6% en 2012.</span>
+<span id="cb35-327"><a href="#cb35-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-328"><a href="#cb35-328" aria-hidden="true" tabindex="-1"></a>Muestra una tendencia de crecimiento sostenido en la inflación, pasando de 1.2% en 2009 a 0.9% en 2019.</span>
+<span id="cb35-329"><a href="#cb35-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-330"><a href="#cb35-330" aria-hidden="true" tabindex="-1"></a>País Vasco:</span>
+<span id="cb35-331"><a href="#cb35-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-332"><a href="#cb35-332" aria-hidden="true" tabindex="-1"></a>Registra una de las variaciones más altas, llegando a 3.6% en 2012.</span>
+<span id="cb35-333"><a href="#cb35-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-334"><a href="#cb35-334" aria-hidden="true" tabindex="-1"></a>Después de una caída en 2013-2014, la variación se recupera y se mantiene en torno al 1% en los últimos años.</span>
+<span id="cb35-335"><a href="#cb35-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-336"><a href="#cb35-336" aria-hidden="true" tabindex="-1"></a>Navarra:</span>
+<span id="cb35-337"><a href="#cb35-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-338"><a href="#cb35-338" aria-hidden="true" tabindex="-1"></a>Experimenta una variación máxima del 2.8% en 2010, seguida de una tendencia a la baja.</span>
+<span id="cb35-339"><a href="#cb35-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-340"><a href="#cb35-340" aria-hidden="true" tabindex="-1"></a>En 2019, la variación se sitúa en 1.3%, una de las más altas del periodo.</span>
+<span id="cb35-341"><a href="#cb35-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-342"><a href="#cb35-342" aria-hidden="true" tabindex="-1"></a>Cantabria:</span>
+<span id="cb35-343"><a href="#cb35-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-344"><a href="#cb35-344" aria-hidden="true" tabindex="-1"></a>Presenta una variación elevada, alcanzando 3.6% en 2012.</span>
+<span id="cb35-345"><a href="#cb35-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-346"><a href="#cb35-346" aria-hidden="true" tabindex="-1"></a>Después de una caída en 2013-2014, la variación se recupera y se mantiene en torno al 1% en los últimos años.</span>
+<span id="cb35-347"><a href="#cb35-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-348"><a href="#cb35-348" aria-hidden="true" tabindex="-1"></a>En general, el periodo 2009-2019 se caracteriza por:</span>
+<span id="cb35-349"><a href="#cb35-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-350"><a href="#cb35-350" aria-hidden="true" tabindex="-1"></a>Una tendencia de crecimiento sostenido de la inflación en la mayoría de las comunidades autónomas, con picos máximos en 2012.</span>
+<span id="cb35-351"><a href="#cb35-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-352"><a href="#cb35-352" aria-hidden="true" tabindex="-1"></a>Después de la crisis económica de 2008-2009, se observa una recuperación gradual de la inflación.</span>
+<span id="cb35-353"><a href="#cb35-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-354"><a href="#cb35-354" aria-hidden="true" tabindex="-1"></a>En los últimos años, se aprecia una moderación de las variaciones del IPC, situándose en torno al 1% en la mayoría de las comunidades.</span>
+<span id="cb35-355"><a href="#cb35-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-356"><a href="#cb35-356" aria-hidden="true" tabindex="-1"></a>Algunas comunidades, como Cataluña y País Vasco, mantienen variaciones más elevadas a lo largo de todo el periodo.</span>
+<span id="cb35-357"><a href="#cb35-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-358"><a href="#cb35-358" aria-hidden="true" tabindex="-1"></a>Esta evolución refleja la recuperación de la actividad económica y el consumo tras la crisis, así como la estabilización de los precios en los últimos años.</span>
+<span id="cb35-359"><a href="#cb35-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-360"><a href="#cb35-360" aria-hidden="true" tabindex="-1"></a>##IPC 2020-2023</span>
+<span id="cb35-361"><a href="#cb35-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-364"><a href="#cb35-364" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb35-365"><a href="#cb35-365" aria-hidden="true" tabindex="-1"></a>ruta <span class="ot">&lt;-</span> <span class="st">"./datos/ccaa2.csv"</span></span>
+<span id="cb35-366"><a href="#cb35-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-367"><a href="#cb35-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-368"><a href="#cb35-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-369"><a href="#cb35-369" aria-hidden="true" tabindex="-1"></a>        df_ccaa_orig2 <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(ruta)</span>
+<span id="cb35-370"><a href="#cb35-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-371"><a href="#cb35-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-372"><a href="#cb35-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-373"><a href="#cb35-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-374"><a href="#cb35-374" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa_orig2 <span class="sc">%&gt;%</span></span>
+<span id="cb35-375"><a href="#cb35-375" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span> (<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb35-376"><a href="#cb35-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-377"><a href="#cb35-377" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-378"><a href="#cb35-378" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span> (<span class="fu">grepl</span>(<span class="st">"M12"</span>, Periodo))</span>
+<span id="cb35-379"><a href="#cb35-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-380"><a href="#cb35-380" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-381"><a href="#cb35-381" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(</span>
+<span id="cb35-382"><a href="#cb35-382" aria-hidden="true" tabindex="-1"></a>            Año <span class="ot">=</span> <span class="fu">substr</span>(Periodo, <span class="dv">1</span>, <span class="dv">4</span>),  </span>
+<span id="cb35-383"><a href="#cb35-383" aria-hidden="true" tabindex="-1"></a>            <span class="at">Mes =</span> <span class="fu">substr</span>(Periodo, <span class="dv">5</span>, <span class="dv">6</span>)   </span>
+<span id="cb35-384"><a href="#cb35-384" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb35-385"><a href="#cb35-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-386"><a href="#cb35-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-387"><a href="#cb35-387" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-388"><a href="#cb35-388" aria-hidden="true" tabindex="-1"></a>          <span class="fu">filter</span>(Año <span class="sc">&gt;=</span> <span class="dv">2019</span> <span class="sc">&amp;</span> Año <span class="sc">&lt;=</span> <span class="dv">2023</span>)</span>
+<span id="cb35-389"><a href="#cb35-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-390"><a href="#cb35-390" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-391"><a href="#cb35-391" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(</span>
+<span id="cb35-392"><a href="#cb35-392" aria-hidden="true" tabindex="-1"></a>            <span class="at">Total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Total),  </span>
+<span id="cb35-393"><a href="#cb35-393" aria-hidden="true" tabindex="-1"></a>            <span class="at">Total =</span> <span class="fu">as.numeric</span>(Total)       </span>
+<span id="cb35-394"><a href="#cb35-394" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb35-395"><a href="#cb35-395" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-396"><a href="#cb35-396" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(Año <span class="ot">=</span> <span class="fu">as.numeric</span>(Año))</span>
+<span id="cb35-397"><a href="#cb35-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-398"><a href="#cb35-398" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-399"><a href="#cb35-399" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span>(<span class="sc">-</span>Periodo)</span>
+<span id="cb35-400"><a href="#cb35-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-401"><a href="#cb35-401" aria-hidden="true" tabindex="-1"></a>        <span class="fu">colnames</span>(df_ccaa3)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">make.names</span>(<span class="st">"CCAA"</span>, <span class="at">unique =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-402"><a href="#cb35-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-403"><a href="#cb35-403" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">lapply</span>(df_ccaa3, <span class="cf">function</span>(x) <span class="fu">iconv</span>(x, <span class="at">from =</span> <span class="st">"latin1"</span>, <span class="at">to =</span> <span class="st">"UTF-8"</span>, <span class="at">sub =</span> <span class="st">"byte"</span>)), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb35-404"><a href="#cb35-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-405"><a href="#cb35-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-406"><a href="#cb35-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-407"><a href="#cb35-407" aria-hidden="true" tabindex="-1"></a>        <span class="fu">write.csv</span>(df_ccaa3, <span class="at">file =</span> <span class="st">"ccaa2.csv"</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb35-408"><a href="#cb35-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-409"><a href="#cb35-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-410"><a href="#cb35-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-411"><a href="#cb35-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-412"><a href="#cb35-412" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-413"><a href="#cb35-413" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(</span>
+<span id="cb35-414"><a href="#cb35-414" aria-hidden="true" tabindex="-1"></a>            <span class="at">Total =</span> <span class="fu">gsub</span>(<span class="st">","</span>, <span class="st">"."</span>, Total),  </span>
+<span id="cb35-415"><a href="#cb35-415" aria-hidden="true" tabindex="-1"></a>            <span class="at">Total =</span> <span class="fu">as.numeric</span>(Total)       </span>
+<span id="cb35-416"><a href="#cb35-416" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb35-417"><a href="#cb35-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-418"><a href="#cb35-418" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-419"><a href="#cb35-419" aria-hidden="true" tabindex="-1"></a>        df_ccaa3 <span class="ot">&lt;-</span> df_ccaa3 <span class="sc">%&gt;%</span></span>
+<span id="cb35-420"><a href="#cb35-420" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span>(CCAA, Año, Total) <span class="sc">%&gt;%</span>    </span>
+<span id="cb35-421"><a href="#cb35-421" aria-hidden="true" tabindex="-1"></a>          <span class="fu">group_by</span>(CCAA, Año) <span class="sc">%&gt;%</span>   </span>
+<span id="cb35-422"><a href="#cb35-422" aria-hidden="true" tabindex="-1"></a>          <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span>    </span>
+<span id="cb35-423"><a href="#cb35-423" aria-hidden="true" tabindex="-1"></a>          <span class="fu">pivot_wider</span>(    </span>
+<span id="cb35-424"><a href="#cb35-424" aria-hidden="true" tabindex="-1"></a>            <span class="at">names_from =</span> Año, </span>
+<span id="cb35-425"><a href="#cb35-425" aria-hidden="true" tabindex="-1"></a>            <span class="at">values_from =</span> Total</span>
+<span id="cb35-426"><a href="#cb35-426" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb35-427"><a href="#cb35-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-428"><a href="#cb35-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-429"><a href="#cb35-429" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-430"><a href="#cb35-430" aria-hidden="true" tabindex="-1"></a>        <span class="fu">kable</span>(df_ccaa3, <span class="at">caption =</span> <span class="st">"Resumen de IPC por Comunidad Autónoma (2019-2023)"</span>)</span>
+<span id="cb35-431"><a href="#cb35-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-432"><a href="#cb35-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-433"><a href="#cb35-433" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="index_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
